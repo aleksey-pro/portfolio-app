@@ -47,3 +47,16 @@ $.gulp.task('default', $.gulp.series(
     'serve'
   )
 ));
+
+$.gulp.task('build', $.gulp.series(
+  'clean',
+  $.gulp.parallel(
+    'sass',
+    'js:foundation',
+    'js:process',
+    'copy:image',
+    'copy:font',
+    'css:foundation',
+    'create:version'
+  )
+));
