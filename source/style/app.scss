@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+@import 'common/greating';
+@import 'common/menu';
+@import 'common/form';
+@import 'common/blog';
+@import 'common/index';
+@import 'common/admin';
