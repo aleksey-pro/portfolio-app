@@ -1,0 +1,117 @@
+.check-form {
+  color: #fff;
+}
+
+input.check-input {
+  display: none;
+}
+
+.checkbox-custom {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  border: 1px solid #fff;
+}
+
+.check-label {
+  margin-left: 10px;
+}
+
+input.check-input:checked ~ label.check-label {
+  color: #a5aea9;
+}
+
+input.check-input:checked + .checkbox-custom {
+  border: none;
+}
+
+input.check-input:checked + .checkbox-custom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: $light-green url('../../assets/img/check.svg') center center no-repeat;
+  background-size: contain;
+}
+
+input[name='choose'] {
+  display: none;
+}
+
+.radio-custom {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  vertical-align: middle;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.choose-label {
+  margin-left: 5px;
+}
+
+.choose-label--yes {
+  margin-right: 35px;
+}
+
+input#yes:checked ~ label.choose-label--yes {
+  color: $light-green;
+}
+
+input#no:checked ~ label.choose-label--no {
+  color: $light-green;
+}
+
+input#yes:checked ~ #radio-yes::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+input#yes:checked ~ #radio-yes::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  z-index: 10;
+  background-color: #6c9c5a;
+  background-size: contain;
+  border-radius: 50%;
+}
+
+
+input#no:checked ~ #radio-no::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+input#no:checked ~ #radio-no::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
+  background-color: #6c9c5a;
+  border-radius: 50%;
+}

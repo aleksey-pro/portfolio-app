@@ -1,10 +1,10 @@
 {
   "db": {
-    "host": "localhost",
-    "port": "27017",
-    "name": "test",
-    "user": "",
-    "password": ""
+    "host": "root:181621@ds111262.mlab.com",
+    "port": "11262",
+    "name": "portfolio",
+    "user": "root",
+    "password": "181621"
   },
   "upload": "public/upload",
   "mail": {

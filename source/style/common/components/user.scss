@@ -1,0 +1,35 @@
+.user {
+  text-align: center;
+
+  &__photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  &__photo-avatar {
+    width: 100%;
+  }
+
+  &__name {
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 35px;
+    font-family: 'Roboto-Medium', Arial, sans-serif;
+    line-height: 1.17;
+
+    @include phones {
+      font-size: 21px;
+      line-height: 1.33;
+    }
+
+  }
+
+  &__desc {
+    color: #fff;
+  }
+
+}

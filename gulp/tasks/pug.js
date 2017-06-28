@@ -5,9 +5,11 @@ module.exports = function() {
   $.gulp.task('pug', function() {
     patterns.push({ match: '%=suffix=%', replace: $.dev ? '' : '.min' });
     patterns.push({ match: '%=version=%', replace: $.dev ? '' : `?rel=${$.package.version}` });//Math.ceil(Math.random()*100000)
-
-    return $.gulp.src('./source/template/pages/*.pug')
-      .pipe($.gp.pug({ pretty: true }))
+    return $.gulp.src('./views/pages/*.pug')
+      .pipe($.gp.pug({
+        // locals : JSON.parse($.fs.readFileSync('views/data/content2.json', 'utf8')),
+        pretty: true
+      }))
       .on('error', $.gp.notify.onError(function(error) {
         return {
           title: 'Pug',
@@ -19,3 +21,6 @@ module.exports = function() {
       .pipe($.browserSync.stream({once: true}));
   });
 };
+
+// fs.existsSync(path.join('views/data/content2.json'),function (exists) { console.log(exists ? "true" : "false" );});
+

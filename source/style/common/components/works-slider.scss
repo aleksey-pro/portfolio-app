@@ -1,0 +1,70 @@
+.slider__active {
+  position: relative;
+  height: 530px;
+
+  @include phones {
+    height: 256px;
+  }
+
+
+  .slider__active-image {
+    height: 310px;
+    max-width: 100%;
+    display: block;
+    @include centered-by-translate();
+
+    @include tablets {
+      height: 380px;
+    }
+    @include phones {
+      height: 160px;
+    }
+  }
+}
+
+.slider__btns {
+  overflow: hidden;
+}
+
+.slider__btn {
+  width: 50%;
+  float: left;
+  position: relative;
+  height: 225px;
+
+
+  @include phones {
+    height: 90px;
+  }
+}
+
+.slider__btn.btn-down {
+  background-color: gray;
+  opacity: 0.5;
+}
+
+.slider__btn.btn-up {
+  background-color: gray;
+  opacity: 0.4;
+}
+
+.slider__btn-icon {
+  width: 45px;
+  height: 30px;
+  fill: #fff;
+  @include centered-by-translate();
+  z-index: 100;
+}
+
+.slider__item {
+  position: absolute;
+  height: 225px;
+  text-align: center;
+  width: 100%;
+}
+
+.slider__item-pic {
+  width: 150px;
+  height: 100%;
+  margin: 0 20px;
+}

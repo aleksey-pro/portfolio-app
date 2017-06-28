@@ -1,0 +1,15 @@
+header.header
+    .Background
+        canvas.Background-canvas
+    .header__socials
+        include socials
+    .header__trigger
+        a(href='#').header__trigger-link
+            span.header__trigger--middle
+    a(href="#").down-arrow
+        svg.down-arrow__icon
+            use(xlink:href='assets/img/sprite.svg#common--arrow_down')
+    svg.svg-title.header__svg-title
+        use(xlink:href='assets/img/sprite.svg#pages--about--portfolio_title')
+    .header__title
+        include user

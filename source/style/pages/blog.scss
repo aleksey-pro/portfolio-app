@@ -1,0 +1,148 @@
+.blog-header{
+  height: 440px;
+
+  .user__name, .header__desc {
+    display: none;
+  }
+}
+
+.blog-arrow {
+  bottom: 50px !important;
+}
+
+.blog-name {
+  color: #fff;
+  position: static;
+  margin-bottom: 30px;
+
+  &:after {
+    background: #fff;
+  }
+}
+
+.blog-content {
+  position: relative;
+  background-color: $pale;
+  padding-top: 50px;
+  @extend %clearfix;
+
+  @include tablets {
+    padding: 50px 45px 0 25px;
+  }
+
+  @include phones {
+    padding: 35px 10px 0 10px;
+  }
+}
+
+.blog-nav {
+  float: left;
+  width: 35%;
+  padding-right: 80px;
+  position: relative;
+  transition: transform 0.5s;
+
+  @include tablets {
+    transform: translate(-110%);
+    position: fixed;
+    top: 0;
+    height: 100%;
+
+  }
+
+  @include phones {
+    transform: translate(-105%);
+  }
+
+
+  @include phones {
+    width: 85%;
+  }
+
+  &--opened {
+    transform: translate(0);
+    position: fixed;
+    background-color: rgba($brand-green, 0.8);
+    padding-right: 1.25rem;
+    z-index: 1000;
+    top: 0;
+    height: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    width: 230px;
+
+    .blog-items__link {
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+  &--fixed {
+    position: fixed;
+    top: 0;
+    width: 35%;
+
+    @include tablets {
+      width: 230px;
+    }
+  }
+}
+
+.blog-items__item {
+  display: block;
+  padding: 20px 10px 10px;
+  text-align: right;
+  box-sizing: content-box;
+  border-right: 3px solid transparent;
+
+  &--green {
+      a {
+        color: $brand-green;
+        font-weight: bold;
+      }
+    border-right: 3px solid $brand-green;
+  }
+
+  @include tablets {
+    border-right: none;
+  }
+
+}
+
+.blog-items__link {
+  font-family: 'Robot-Bold', Arial, sans-serif;
+  color: $main-font-color;
+  text-decoration: none;
+}
+
+.tail {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -15px;
+  height: 30px;
+  width: 15px;
+  background-color: $brand-green;
+  border-radius: 0 50% 50% 0;
+
+  @include tablets {
+    display: block;
+  }
+}
+
+.articles {
+  float: right;
+  width: 65%;
+  padding-right: 110px;
+  
+  @include tablets {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+.blog-footer,.blog-footer-copy{
+  position: static;
+}

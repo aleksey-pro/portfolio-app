@@ -1,0 +1,109 @@
+doctype html
+html(lang="ru-RU")
+    include ../common/head
+    body.hasBlur.hasSlideMenu
+    <!--[if lt IE 10]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+    <![endif]-->
+        .wrapper
+            include ../common/slide-menu
+            //Шапка
+            include  ../common/header
+            //-Контент
+            section.portfolio.to_scroll
+                .portfolio-head
+                    svg(
+                    viewbox="0 0 1000 100"
+                    preserveAspectRatio="none"
+                    class="triangle portfolio__triangle portfolio__triangle--left")
+                        polygon(points="0,0 0,100 1000,100").triangle--fill--yellow
+                    svg(
+                    viewbox="0 0 1000 100"
+                    preserveAspectRatio="none"
+                    class="triangle portfolio__triangle portfolio__triangle--right")
+                        polygon(points="0,100 1000,100 1000,0").triangle--fill--yellow
+                    svg.title__svg-bg.portfolio__head-svg
+                        use(xlink:href='assets/img/sprite.svg#pages--works--works_title')
+                    .title.portfolio-head__title
+                        | Мои работы
+                .slider
+                    .slider__left
+                        .works
+                            ul.works__list
+                                li.works__item.work-sample.work-sample--active
+                                    .subtitle.works__sample__title сайт строительной компании
+                                li.works__item.work-sample
+                                    .subtitle.work-sample__title
+                                li.works__item.work-sample
+                                    .subtitle.work-sample__title
+                                li.works__item.work-sample
+                                    .subtitle.work-sample__title
+                            .works__list-subtitle
+                                | HTML, CSS, JAVASCRIPT
+                            ul.works__links
+                                a(target='blank').works__links-btn.button.works__links-btn-active
+                                    svg.button-icon
+                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                                        span Посмотреть сайт
+                                a(target='blank').works__links-btn.button
+                                    svg.button-icon
+                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                                        span Посмотреть сайт
+                                a(target='blank').works__links-btn.button
+                                    svg.button-icon
+                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                                        span Посмотреть сайт
+                                a(target='blank').works__links-btn.button
+                                    svg.button-icon
+                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                                        span Посмотреть сайт
+                    .slider__right
+                        .slider__active
+                            each index in items
+                                img(src=`${index.picture}` alt=`${index.name}`).slider__active-image
+                    .slider__btns
+                        a(href='#').slider__btn.btn-down
+                            svg.slider__btn-icon
+                                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_down')
+                            ul.slider__list.slider__list-up
+                                each index in items
+                                    li.slider__item.active
+                                        img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
+                        a(href='#').slider__btn.btn-up
+                            svg.slider__btn-icon
+                                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_up')
+                            ul.slider__list.slider__list-down
+                                ul.slider__list.slider__list-up
+                                    each index in items
+                                        li.slider__item.active
+                                            img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
+            section.reviews
+                .reviews__blur-back
+                    img(class='reviews__img blur-background' src='../../assets/img/aboout_bg_1200.png' alt='works')
+                .reviews__title.title
+                    | что обо мне
+                    |
+                    br
+                    |
+                    | говорят
+                    svg.title__svg-bg.reviews__title-svg
+                        use(xlink:href='assets/img/sprite.svg#pages--works--about_title')
+                mixin reviews-card (review)
+                    .reiews-list__item.review
+                        .review__image
+                            img(class='review__pic' src=review.path)
+                        p= review.text
+                        .review__name= review.name
+                        .review__prof= review.who
+                .reviews-list
+                    .reviews-list__container
+                        each review in reviews
+                            +reviews-card(review)
+                .reviews__callback-form
+                    include ../common/contact-form
+                a.arrow-up
+                    svg.down-arrow__icon.down-arrow__icon--reversed
+                        use(xlink:href='assets/img/sprite.svg#common--arrow_down')
+            //Подвал
+            include  ../common/footer
+            include  ../common/preloader

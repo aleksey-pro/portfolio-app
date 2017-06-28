@@ -1,11 +1,29 @@
 import fileUpload from './upload';
 import prepareSend from './prepareSend';
 
+const jTabsModule = require('./jTabs');
+const jQueryTabs = new jTabsModule();
+jQueryTabs.init();
+
+
 const formUpload = document.querySelector('#upload');
 const formBlog = document.querySelector('#blog');
+const formSkill = document.querySelector('#skillForm');
 
-formUpload.addEventListener('submit', prepareSendFile);
-formBlog.addEventListener('submit', prepareSendPost);
+if (formUpload && formBlog && formSkill) {
+  formUpload.addEventListener('submit', prepareSendFile);
+  formBlog.addEventListener('submit', prepareSendPost);
+  formSkill.addEventListener('submit', prepareSendSkill);
+}
+
+function prepareSendSkill(e) {
+  e.preventDefault();
+  let data = {
+    num: formSkill.num.value,
+    num2: formSkill.num2.value
+  };
+  prepareSend('/admin/addskill', formSkill, data);
+}
 
 function prepareSendFile(e) {
   e.preventDefault();
@@ -14,12 +32,16 @@ function prepareSendFile(e) {
   let file = document
     .querySelector('#file-select')
     .files[0];
+  let url = document
+    .querySelector('#file-url')
+    .value;
   let name = document
     .querySelector('#file-desc')
     .value;
 
   formData.append('photo', file, file.name);
   formData.append('name', name);
+  formData.append('url', url);
 
   resultContainer.innerHTML = 'Uploading...';
   fileUpload('/admin/upload', formData, function (data) {

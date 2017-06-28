@@ -1,0 +1,173 @@
+.portfolio {
+  @extend %clearfix;
+}
+
+
+.portfolio-head{
+  width: 100%;
+  position: relative;
+  height: 185px;
+  background: $white;
+
+  @include tablets {
+    height: 140px;
+  }
+
+}
+
+
+.portfolio-head__title {
+  @include centered-by-translate();
+  margin: 0;
+
+  @include phones {
+    position: relative;
+  }
+}
+
+.portfolio__head-svg {
+
+  @include tablets {
+    width: 60%;
+  }
+
+  @include phones {
+    width: 80%;
+  }
+}
+
+.slider {
+  @include tablets {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.slider__left  {
+  width: 50%;
+  height: 755px;
+  position: relative;
+  float: left;
+  background-color: $olive;
+
+  @include tablets {
+    flex: 10 0 100%;
+    order: 2;
+    height: 270px;
+  }
+}
+
+.slider__right {
+  width: 50%;
+  height: 530px;
+  float: left;
+  background-color: $grey;
+
+  @include tablets {
+    flex: 1 0 100%;
+    order: 1;
+  }
+
+  @include phones {
+    height: auto;
+  }
+}
+
+
+.slider__btns {
+  float: left;
+  width: 50%;
+  height: 225px;
+
+  @include tablets {
+    flex: 1 0 100%;
+    order: 3;
+  }
+
+  @include phones {
+    height: 90px;
+  }
+
+}
+
+.works {
+  @include centered-by-translate();
+  text-align: center;
+}
+
+.works__list {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 300px;
+
+  @include tablets {
+    height: auto;
+  }
+}
+
+.work-sample {
+  display: none;
+
+  &--active {
+    display: block;
+  }
+}
+
+.slider__list-down .slider__item {
+  top: -225px;
+}
+.slider__list-up .slider__item {
+  top: 225px;
+}
+.slider__item.active {
+  top: 0;
+}
+
+
+.works__sample__title {
+  margin-bottom: 60px;
+
+  @include tablets {
+    margin-bottom: 35px;
+  }
+
+  @include phones {
+    font-size: 21px;
+  }
+}
+
+.works__list-subtitle {
+  text-align: center;
+  color: $light-green;
+  font-family: 'Roboto-Medium', Arial, sans-serif;
+  margin-bottom: 60px;
+
+  @include tablets {
+    margin-bottom: 30px;
+  }
+
+}
+
+.reviews__callback-form {
+  text-align: center;
+  padding: 20px 0 60px;
+
+  @include phones {
+    padding-bottom: 35px;
+  }
+}
+
+.arrow-up {
+  display: block;
+  text-align: center;
+  margin-bottom: 55px;
+
+  @include phones {
+    margin-bottom: 200px;
+  }
+}
+
+.down-arrow__icon--reversed {
+  transform: rotate(180deg);
+}

@@ -22,7 +22,11 @@ const uploadDir = path.join(__dirname, config.upload);
 //подключаем модули
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://root:12345@ds137191.mlab.com:37191/testing');
+mongoose.connect('mongodb://root:181621@ds111262.mlab.com:11262/portfolio').catch(e => {
+  console.error(e);
+  throw e;
+});
+
 // mongoose
 //   .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
 //     user: config.db.user,
@@ -37,6 +41,7 @@ require('./models/db-close');
 //подключаем модели(сущности, описывающие коллекции базы данных)
 require('./models/blog');
 require('./models/pic');
+require('./models/skills');
 require('./models/user');
 
 // view engine setup
@@ -65,6 +70,8 @@ app.use(express.static(path.join(__dirname, currentStatic)));
 
 
 app.use('/', require('./routes/index'));
+app.use('/works', require('./routes/index'));
+app.use('/about', require('./routes/index'));
 app.use('/contact', require('./routes/mail'));
 app.use('/login', require('./routes/login'));
 app.use('/admin', require('./routes/admin'));
@@ -82,7 +89,8 @@ app.use(function (err, req, res, next) {
   res.render('500');
 });
 
-server.listen(80, '0.0.0.0');
+server.listen(3000, 'localhost');
+// server.listen(process.env.PORT, '0.0.0.0');
 server.on('listening', function () {
   jsonfile
     .readFile(fileVersionControl, function (err, obj) {

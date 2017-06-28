@@ -1,0 +1,137 @@
+.reviews  {
+  position: relative;
+  @extend %clearfix;
+  padding-top: 40px;
+
+  &:after {
+    content: '';
+    display: block;
+    height: 190px;
+  }
+}
+
+.reviews__blur-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 1200px;
+}
+
+.reviews__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  display:block;
+}
+
+.reviews__title {
+  @extend %clearfix;
+  margin-bottom: 60px;
+
+  @include phones {
+    margin-bottom: 40px;
+  }
+}
+
+.reviews__title-svg {
+  height: 180px;
+
+  @include tablets {
+    width: 60% !important;
+  }
+}
+
+.reviews-list {
+  text-align: center;
+  margin-bottom: 67px;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
+}
+
+.reviews-list__container {
+  display: inline-table;
+
+  @include phones {
+    display: block;
+  }
+}
+
+.reiews-list__item {
+  display: table-cell;
+  max-width: 400px;
+  font-family: 'Roboto-Italic', Arial, sans-serif;
+  padding: 0 10px;
+
+  @include tablets {
+    padding: 0 20px;
+  }
+
+  @include phones {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  .review__image {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .review__pic {
+    display: block;
+    max-width: 100%;
+    background-size: cover;
+    height: 78px;
+  }
+
+  #review-pic--1 {
+    background: #fff url('../../assets/img/review-1.png') 0 0 no-repeat;
+  }
+
+  #review-pic--2 {
+    background: #fff url('../../assets/img/review-2.png') 0 0 no-repeat;
+  }
+
+  .review__name {
+    font-family: 'Roboto-BoldItalic', Arial, sans-serif;
+    color: $brand-green;
+  }
+
+  p {
+    text-align: left;
+    margin-bottom: 30px;
+    position: relative;
+
+    @include phones {
+      margin-bottom: 10px;
+    }
+
+
+    &:before {
+      content: '';
+      background: transparent url('../../assets/img/about__quotes.png') 0 0 no-repeat;
+      display: block;
+      width: 80px;
+      height: 70px;
+      position: absolute;
+      bottom: 0;
+
+      @include phones {
+        bottom: 50%;
+      }
+
+    }
+  }
+}

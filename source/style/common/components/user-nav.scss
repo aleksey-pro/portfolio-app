@@ -1,0 +1,56 @@
+.user-nav {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.form-nav {
+  position: static;
+  margin: 0 -20px;
+}
+
+.login-nav__item {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 50% !important;
+}
+
+.user-nav__item {
+  padding: 12px 0;
+  width: 30%;
+  background-color: $light-green;
+  display: block;
+  float: left;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $brand-green;
+  }
+}
+
+.welcome-nav__item, .login-nav__item:nth-child(2) {
+  border-left: solid 2px #a2bd9d !important;
+}
+
+.welcome-nav--wide__item {
+  width: 40%;
+}
+
+.user-nav__link {
+  color: #fff;
+  text-align: center;
+}
+
+.form-nav__btn:first-child {
+  border-right: solid 2px #a2bd9d !important;
+}
+
+
+.login-btns__btn, .form-nav__btn{
+  width: 50%;
+}

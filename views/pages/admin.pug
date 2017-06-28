@@ -1,38 +1,110 @@
-extends ../_template-admin
+doctype html
+html(lang="ru-RU")
+    include ../common/head
+    body
+    <!--[if lt IE 7]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+    <![endif]-->
+    <!--[if lte IE 11]>
+    <style type="text/css">
+        .wrapper {width: 100%}
+    </style>
+    <![endif]-->
+    .wrapper.admin-wrapper
+        .admin-heading
+            .admin-heading__title Панель администрирования
+            a(href='index').admin-heading__back Вернуться на сайт
+        .admin-tabs.tabs-nav
+            each tab in ['Обо мне', 'Блог', 'Мои работы', 'tab-4']
+                .admin-tabs__item
+                    a(class='admin-tabs__link' href='#')= tab
+        .tabs-content
+            form.admin-about#skillForm(method="POST")
+                .admin-about__title Страница "Обо мне"
+                .status
+                .admin-skills
+                    .admin-skill
+                        .admin-skill__title Frontend
+                        .admin-skill__items
+                            .admin-skill__item
+                                .admin-skill__name HTML
+                                .admin-skill__value
+                                    input.admin-skill__inp(type='text' name='num')
+                                span.admin-skill__perc %
+                            .admin-skill__item
+                                .admin-skill__name CSS
+                                .admin-skill__value
+                                    input.admin-skill__inp(type='text' name='num2')
+                                span.admin-skill__perc  %
+                            .admin-skill__item
+                                .admin-skill__name JavaScript
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                    .admin-skill
+                        .admin-skill__title Backend
+                        .admin-skill__items
+                            .admin-skill__item
+                                .admin-skill__name PHP
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                            .admin-skill__item
+                                .admin-skill__name Node.js
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                            .admin-skill__item
+                                .admin-skill__name Mongo.db
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                    .admin-skill
+                        .admin-skill__title Workflow
+                        .admin-skill__items
+                            .admin-skill__item
+                                .admin-skill__name Gulp
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                            .admin-skill__item
+                                .admin-skill__name Git
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                            .admin-skill__item
+                                .admin-skill__name Bower
+                                .admin-skill__value
+                                    input.admin-skill__inp
+                                span.admin-skill__perc  %
+                input(name="" type="submit" value="Сохранить").save-btn.admin-btn
+                input(name="" type="reset" value="Очистить").save-btn.admin-btn
+            form.admin-blog#blog( method="POST")
+                .admin-blog__title Страница "Блог"
+                .status
+                .admin-add
+                    .admin-add__title Добавить запись
+                    input(class='admin-add__input' type='text' name='title' placeholder='Название').form__input
+                    -
+                        var data = new Date().toLocaleDateString('ru', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit'
+                        })
+                    input(class='admin-add__input' name="date" type="date" value=`${data}` placeholder='Дата').form__input
+                    textarea(class='admin-add__input' name='text' rows='6' placeholder='Содержание')
+                input(name="" type="submit" value="Отправить").blog-btn.admin-btn.form__btn-send
+                input(name="" type="reset" value="Очистить").blog-btn.admin-btn.form__btn-reset
+            form.admin-works#upload(action='/upload' method="POST" enctype="multipart/form-data")
+                .admin-works__title Страница "Мои работы"
+                .status
+                .admin-work
+                    .admin-work__title Добавить работу
+                    input(name="name" type="text" placeholder="Описание работы" class='admin-work__input')#file-desc
+                    input(class='admin-work__input' type='text' name='url' placeholder='http://')#file-url
+                    input(name="photo" type="file" required accept="image/*").new-work-btn#file-select
+                    input(name="" type="submit" value="Отправить").works-btn.admin-btn
+                    input(name="" type="reset" value="Очистить").works-btn.admin-btn
 
-block content
-  include ../common/_greating
-  include ../common/_menu
-
-  .row
-    .col
-      .form-container
-        form.form#upload(action='/upload' method="POST" enctype="multipart/form-data")
-            .form__subtitle Загрузите картинку на сервер
-            .status
-            label.form__input-line
-                input(name="name" type="text" placeholder="Описание картинки").form__input#file-desc
-            label.form__input-line
-                input(name="photo" type="file" required accept="image/*").form__input#file-select
-            .form__btns.form__input-line
-                input(name="" type="submit" value="Отправить").form__btn-send
-                input(name="" type="reset" value="Очистить").form__btn-reset
-    .col
-      .form-container
-        form.form#blog( method="POST")
-            .form__subtitle Добавить запись в блог
-            .status 
-            label.form__input-line
-                input(name="title" type="text" placeholder="Заголовок").form__input
-            label.form__input-line
-                - 
-                    var data = new Date().toLocaleDateString('ru', { 
-                                year: 'numeric', 
-                                month: '2-digit', 
-                                day: '2-digit'
-                                })
-                input(name="date" type="date" value=`${data}`).form__input
-            textarea(placeholder="Ваша запись" name="text").form__textarea
-            .form__btns.form__input-line
-                input(name="" type="submit" value="Отправить").form__btn-send
-                input(name="" type="reset" value="Очистить").form__btn-reset
+    .Background(style='display: none')
+        canvas.Background-canvas

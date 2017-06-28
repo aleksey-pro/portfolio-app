@@ -1,0 +1,50 @@
+.article {
+  border-bottom: 2px solid #ecebe4;
+  padding-bottom: 65px;
+  margin-bottom: 70px;
+
+  @include tablets {
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+  }
+
+  @include phones {
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+  }
+}
+
+.article__title {
+  color: $main-font-color;
+  font-family: 'Sansus Webissimo', Arial, sans-serif;
+  font-size: 35px;
+  margin-bottom: 15px;
+
+  @include tablets {
+    font-size: 30px;
+    margin-bottom: 15px;
+  }
+
+  @include phones {
+    font-size: 21px;
+    line-height: 1.33;
+    margin-bottom: 15px;
+  }
+}
+
+.article__date {
+  color: $brand-green;
+  margin-bottom: 20px;
+
+  @include tablets {
+    margin-bottom: 18px;
+  }
+
+  @include phones {
+    margin-bottom: 15px;
+  }
+}
+
+.article__text {
+  margin-bottom: 15px;
+}

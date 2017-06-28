@@ -1,0 +1,29 @@
+.subtitle {
+  color: $main-font-color;
+  font-family: 'Sansus Webissimo', Arial, sans-serif;
+  font-size: 35px;
+  line-height: 1.17;
+  text-transform: uppercase;
+  position: relative;
+  text-align: center;
+  margin-top: 0;
+  font-weight: normal;
+
+  @include tablets {
+    font-size: 30px;
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    @include centered-by-translate(x);
+    background: $main-font-color;
+    width: 90px;
+    height: 3px;
+    margin-top: 20px;
+  }
+
+  @include phones {
+    font-size: 30px;
+  }
+}

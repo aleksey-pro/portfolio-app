@@ -1,0 +1,89 @@
+@mixin font-face($family, $filename, $style: normal, $weight: normal) {
+  @font-face {
+    font-family: $family;
+    src: url('../fonts/#{$filename}.ttf') format("truetype");
+    //src: url('#{$folder}/#{$filename}.eot');
+    //src: url('#{$folder}/#{$filename}.eot?#iefix') format("embedded-opentype");
+    //src: url('#{$folder}/#{$filename}.woff') format("woff");
+    //src: url('#{$folder}/#{$filename}.svg#08bb4ba465a902745fc23c83a5d9fdc2') format("svg");
+    font-style: $style;
+    font-weight: $weight;
+  }
+}
+
+@include font-face('Roboto-Regular', 'Roboto-Regular');
+@include font-face('Roboto-Bold', 'Roboto-Bold');
+@include font-face('Roboto-BoldItalic', 'Roboto-BoldItalic');
+@include font-face('Roboto-Italic', 'Roboto-Italic');
+@include font-face('Roboto-Light', 'Roboto-Light');
+@include font-face('Roboto-LightItalic', 'Roboto-LightItalic');
+@include font-face('Roboto-Medium', 'Roboto-Medium');
+@include font-face('Roboto-MediumItalic', 'Roboto-MediumItalic');
+@include font-face('Sansus-Webissimo-Regular', 'Sansus-Webissimo-Regular');
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto-Regular", Arial, sans-serif;
+  font-size: 16px;
+  color: $main-font-color;
+  line-height: 1.42;
+  -webkit-font-smoothing: antialiased;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  @include phones {
+    font-size: 14px;
+    line-height: 1.71;
+  }
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+a {
+  color: $link-color;
+  font-family: "Roboto-Medium", Arial, sans-serif;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+

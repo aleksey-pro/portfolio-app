@@ -35,11 +35,13 @@ $.gulp.task('default', $.gulp.series(
   $.gulp.parallel(
     'sass',
     'js:foundation',
-    'js:process',
+    // 'js:process',
     'copy:image',
     'copy:font',
     'css:foundation',
-    'create:version'
+    'create:version',
+    'sprite:svg',
+    'webpack'
   ),
   'nodemon',
   $.gulp.parallel(

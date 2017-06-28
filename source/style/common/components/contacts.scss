@@ -1,0 +1,40 @@
+.my-contacts {
+  display: block;
+  background-color: rgba(#fff, 0.5);
+  @include border-radius(10px);
+  text-align: center;
+  overflow: hidden;
+  width: 380px;
+
+  @include phones {
+    width: 100%;
+    border-radius: 0;
+  }
+
+}
+
+.my-contacts__title {
+  margin: 3px 0 55px !important;
+}
+
+.my-contacts__list {
+  text-align: left;
+  font-family: 'Roboto-Medium', Arial, sans-serif;
+  color: $main-font-color;
+  margin: 0 40px;
+}
+
+.my-contacts__item {
+  margin-bottom: 20px;
+}
+
+.my-contacts__icon {
+  display: inline-block;
+  vertical-align: middle;
+  fill: $brand-green;
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+

@@ -7,6 +7,10 @@ const mongoose = require('mongoose'),
       type: String,
       required: [true, 'Укажите описание картинки']
     },
+    url: {
+      type: String,
+      required: [true, 'Укажите адрес сайта']
+    },
     picture: {
       type: String
     }

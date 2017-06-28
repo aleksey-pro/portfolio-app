@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
     title: 'Связаться со мной'
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages/contact', obj);
+  res.render('pages2/contact', obj);
 });
 
 router.post('/', function (req, res) {

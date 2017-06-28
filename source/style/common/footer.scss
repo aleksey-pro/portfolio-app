@@ -1,0 +1,118 @@
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 40px;
+  background-color: rgba(#373e42, 0.8);
+  color: #fff;
+  overflow: hidden;
+
+  @include phones {
+    text-align: center;
+    bottom: 60px;
+  }
+
+
+
+  &__desc, &__nav, &__quote {
+    float: left;
+    width: 33.33%;
+    margin: 30px 0;
+    padding: 0 5px 0 30px;
+    position: relative;
+
+    @include tablets {
+      width: 50%;
+    }
+
+    @include phones {
+      float: none;
+      width: 100%;
+      margin: 20px 0;
+    }
+
+  }
+
+  &__quote {
+    @include tablets {
+      float: none;
+      width: 100%;
+    }
+  }
+
+  &__nav, &__quote {
+    &:before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 88px;
+      background-color: #69716e;
+      position: absolute;
+      left: 0;
+
+      @include phones {
+        width: 90%;
+        height: 1px;
+        background-color: #69716e;
+        position: absolute;
+        top: -10px;
+        left: 15px;
+      }
+
+    }
+  }
+}
+
+.footer__desc {
+  font-family: "Roboto-Light", Arial, sans-serif;
+}
+
+.footer__nav {
+  font-family: "Roboto-Medium", Arial, sans-serif;
+}
+
+.footer__quote {
+  font-family: "Roboto-LightItalic", Arial, sans-serif;
+  line-height: 1.63;
+}
+
+.footer__quote-name {
+  font-family: "Roboto-BoldItalic", Arial, sans-serif;
+}
+
+.menu {
+  margin-bottom: 25px;
+}
+
+.menu__item {
+  display: inline;
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+}
+
+.menu__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-copy {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba($brand-green, 0.6);
+  font-family: 'Roboto-Light', Arial,sans-serif;
+
+  @include phones {
+    height: 60px;
+    line-height: inherit;
+    vertical-align: middle; //TODO
+  }
+}

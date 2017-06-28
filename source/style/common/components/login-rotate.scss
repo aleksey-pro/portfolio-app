@@ -1,0 +1,62 @@
+.flip-container {
+  perspective: 1000px;
+  width: 380px;
+  height: 395px;
+  position: relative;
+
+  @include tablets {
+    width: 350px;
+  }
+
+  @include phones {
+    width: 300px;
+  }
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+}
+
+.login-frontside, .login-backside {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 380px;
+  height: 425px;
+  transition: transform 1.5s ease-in-out;
+
+  @include tablets {
+    width: 350px;
+    height: 395px;
+  }
+
+}
+
+.login-frontside {
+  z-index: 2;
+  /* for firefox 31 */
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.login-backside {
+  transform: perspective(1000px) rotateY(180deg);
+  backface-visibility:hidden;
+}
+
+//.flipper {
+//  transform-origin: 190px 100%;
+//}
+
+//.flip-container.active .flipper {
+//  transform: perspective(1000px) rotateY(-180deg);
+//}
+
+.flip-container.active .login-backside {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.flip-container.active .login-frontside {
+  transform: perspective(1000px) rotateY(180deg);
+}

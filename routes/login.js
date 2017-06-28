@@ -8,7 +8,7 @@ router.get('/', function (req, res) {
     title: 'Авторизация'
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages/login', obj);
+  res.render('pages2/login', obj);
 });
 
 router.post('/', (req, res) => {

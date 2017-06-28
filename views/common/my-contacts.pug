@@ -1,0 +1,14 @@
+.my-contacts
+    .subtitle.my-contacts__title
+        | Контакты
+    mixin contacts(url, text)
+        li(class='my-contacts__item')
+            svg.my-contacts__icon
+                use(xlink:href='assets/img/sprite.svg#components--contacts--' + url)
+            span.my-contacts__name= text
+    ul.my-contacts__list
+        +contacts('skype', 'skype__anxieter')
+        +contacts('envelope2', 'anxieter@yandex.ru')
+        +contacts('phone2', '8-952-000-00-00')
+        +contacts('map_marker', 'г.Ломоносов')
+

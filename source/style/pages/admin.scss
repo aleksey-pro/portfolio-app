@@ -1,0 +1,268 @@
+%admin-btn {
+  display: block;
+  height: 45px;
+  width: 120px;
+  line-height: 45px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: $light-green;
+  outline: none;
+}
+
+.admin-wrapper {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto-Medium', Arial, sans-serif;
+  position: relative;
+}
+
+_:-ms-lang(x), .admin-wrapper { height: 100%; }
+
+.admin-heading {
+  display: flex;
+  flex: 0 0 80px;
+  align-items: center;
+  background-color: $light-green;
+  color: #fff;
+  justify-content: space-between;
+  padding: 0 25px;
+
+  @include phones {
+    flex: 0 0 60px;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 28px;
+
+    @include phones {
+      font-size: 19px;
+      order: 1;
+    }
+
+  }
+
+  a {
+    color:#fff;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+      color: darken($light-green, 20%);
+      cursor: pointer;
+    }
+  }
+
+}
+
+.admin-tabs {
+  display: flex;
+  flex-basis: 80px;
+  background-color: #f0efe9;
+  text-transform: uppercase;
+
+  @include phones {
+    flex-basis: auto;
+    flex-direction: column;
+  }
+
+  &__link {
+    color: $main-font-color;
+    text-decoration: none;
+  }
+
+  &__item {
+    flex: 0 1 180px;
+    display: flex;
+    align-items: center;
+    border-right: 2px solid #fff;
+    justify-content: center;
+
+    @include phones {
+      flex: 0 0 48px;
+      border-top: 2px solid #fff;
+    }
+
+    &:active, &:hover {
+      background-color: #fff;
+      cursor: pointer;
+    }
+  }
+}
+
+.admin-tabs .active {
+  background-color: #fff;
+}
+
+.tabs-content {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  background: #fff url('../../assets/img/admin-bg.jpg') center center no-repeat;
+  background-size: cover;
+  padding-left: 30px;
+
+  @include phones {
+    padding: 30px 10px 10px 10px;
+  }
+
+}
+
+form.admin-about, form.admin-blog, form.admin-works {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex: 1;
+
+}
+
+.admin-about__title, .admin-blog__title, .admin-works__title {
+  font-size: 21px;
+  color: $main-font-color;
+  display: flex;
+  align-items: center;
+}
+
+.admin-skills {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.admin-skill__title,.admin-add__title, .admin-work__title  {
+  color: $main-font-color;
+}
+
+.admin-skill__items {
+  margin-bottom: 20px;
+}
+
+.admin-skill__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.admin-skill {
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+  margin-right: 40px;
+}
+
+.admin-skill__title {
+  margin-bottom: 15px;
+}
+
+.admin-skill__item {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.admin-skill__name {
+  flex: 1 0 100px;
+  font-family: "Roboto-Regular", Arial, sans-serif;
+}
+
+.admin-skill__inp {
+  width: 30px;
+  margin-right: 10px;
+  outline: none;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.admin-skill__value {
+  flex: 0 0 20px;
+}
+
+.admin-add {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+
+  @include phones {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+}
+
+.admin-add__input, .admin-work__input {
+  border-radius: 7px;
+  margin-top: 18px;
+  outline: none;
+  padding: 5px;
+}
+
+.admin-work {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+
+  @include phones {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}
+
+.admin-work__input {
+  margin-bottom: 20px;
+
+  @include phones {
+    margin-bottom: 10px;
+  }
+}
+
+
+//.new-work-btn {
+//  &:before {
+//    content: '';
+//    background: transparent url('../../assets/img/new-work.png') center center no-repeat;
+//    width: 34px;
+//    height: 35px;
+//    display: inline-block;
+//    vertical-align: middle;
+//  }
+//}
+
+.save-btn, .blog-btn, .works-btn {
+  @extend %admin-btn;
+}
+
+#file-select {
+  width: 250px;
+}
+
+.popup-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-popup {
+  height: 110px;  
+  width: 280px;
+  background-color: #fff;
+  text-align: center;
+  border-radius: 10px;
+  padding-top: 10px;
+
+  .popup-btn {
+    @extend %admin-btn;
+    margin: 10px auto;
+  }
+}

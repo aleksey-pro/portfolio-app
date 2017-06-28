@@ -4,15 +4,17 @@ const readline = require('readline');
 const rl = readline.createInterface({input: process.stdin, output: process.stdout});
 const config = require('./config');
 mongoose.Promise = global.Promise;
-mongoose
-  .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
-    user: config.db.user,
-    pass: config.db.password
-  })
-  .catch(e => {
-    console.error(e);
-    throw e;
-  });
+// mongoose.connect('mongodb://root:12345@ds137191.mlab.com:37191/testing');
+mongoose.connect('mongodb://anxieter:181621@ds111262.mlab.com:11262/portfolio');
+// mongoose
+//   .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
+//     user: config.db.user,
+//     pass: config.db.password
+//   })
+//   .catch(e => {
+//     console.error(e);
+//     throw e;
+//   });
 
 require('./models/db-close');
 //логин и пароль, изначально пустые

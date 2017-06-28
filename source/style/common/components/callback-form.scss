@@ -1,0 +1,73 @@
+.form {
+  width: 380px;
+  height: 460px;
+  display: inline-block;
+  @include border-radius(10px);
+  position: relative;
+  overflow: hidden;
+
+  @include tablets {
+    width: 300px;
+  }
+}
+
+.blur-form {
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/img/aboout_bg_1200.png');
+  background-position:center center;
+  background-repeat: no-repeat;
+  filter:blur(10px);
+
+}
+
+.form__content {
+  padding: 0 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.form__title {
+  margin-bottom: 50px;
+}
+
+.form-fields {
+  display: block;
+
+}
+
+.form-fields__field {
+  display: block;
+  margin-bottom: 20px;
+  padding: 15px;
+  @include border-radius(20px);
+  border: none;
+  width: 100%;
+  outline: none;
+}
+
+@include placeholder {
+  color: $brown;
+  font-family: "Roboto-Regular", Arial, sans-serif;
+  opacity: 0.5;
+}
+
+.server-mes{
+  display: none;
+}
+
+.has-error{
+  background-color: none;
+  border: 1px solid #f97e76 !important;
+}
+.has-success{
+  background-color: none;
+  border-color: 1px solid #3c763d !important;
+}
+
+.error-mes, .success-mes{
+  color: #fff;
+  margin: 10px 0;
+}

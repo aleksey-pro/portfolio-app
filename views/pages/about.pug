@@ -1,0 +1,118 @@
+doctype html
+html(lang="ru-RU")
+    include ../common/head
+    body.hasMap.hasSlideMenu
+    <!--[if lt IE 7]>
+    <p class="browsehappy">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a href="http://browsehappy.com/">обновите</a> его.</p>
+    <![endif]-->
+    .wrapper
+        include ../common/slide-menu
+        //Шапка
+        include ../common/header
+        section.about.to_scroll
+            svg(
+            viewbox="0 0 1000 100"
+            preserveAspectRatio="none"
+            class="triangle about-triangle--left")
+                polygon(points="0,0 0,100 1000,100").triangle.triangle--fill--olive
+            svg(
+            viewbox="0 0 1000 100"
+            preserveAspectRatio="none"
+            class="triangle about-triangle--right")
+                polygon(points="0,100 1000,100 1000,0").triangle.triangle--fill--beige
+            .about-left
+                .title.about__title
+                    svg.title__svg-bg
+                        use(xlink:href='assets/img/sprite.svg#pages--works--about_title')
+                    | Обо мне
+                .about__user
+                    .user-about
+                        .user-about__picture
+                        .user-about__title.subtitle
+                            | Кто я
+                        .user-about__text
+                            p Я веб разработчик из Санкт-Петербурга. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+            .about-right
+                .about-data
+                    .about-data__description.about-user-info
+                        .about-user-info__title.subtitle
+                            | Чем я могу быть
+                            |
+                            br
+                            |
+                            | вам полезен
+                        .about-user-info__text
+                            | Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать несложные задачи на Backend. Но давайте по порядку.
+                    .about-data__content
+                      ul.skills
+                            li.skills__item
+                              .skill-section
+                                  .skill-section__title Frontend
+                                  ul.skill-section__list
+                                      li.skills-section__item
+                                        svg(class="skill-circle" viewBox='0 0 110 110')
+                                            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                            circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-80")
+                                        .skill-name HTML
+                                      li.skills-section__item
+                                        svg(class="skill-circle" viewBox='0 0 110 110')
+                                            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                            circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-70")
+                                            .skill-name CSS3
+                                      li.skills-section__item
+                                        svg(class="skill-circle" viewBox='0 0 110 110')
+                                            circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                            circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-60")
+                                            .skill-name JavaScript
+                            li.skills__item
+                              .skill-section
+                                  .skill-section__title Backend
+                                  ul.skill-section__list
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-10")
+                                          .skill-name PHP
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-10")
+                                              .skill-name mySQL
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-10")
+                                              .skill-name Mongo.db
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-30")
+                                              .skill-name NodeJs&npm
+                            li.skills__item
+                              .skill-section
+                                  .skill-section__title Workflow
+                                  ul.skill-section__list
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-70")
+                                          .skill-name Git
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-70")
+                                              .skill-name Gulp
+                                      li.skills-section__item
+                                          svg(class="skill-circle" viewBox='0 0 110 110')
+                                              circle(r="45" cx="50%" cy="50%" fill="none" class="circle__first")
+                                              circle(r="45" cx="50%" cy="50%"  transform="rotate(-90 55 55)" class="circle__second circle-90")
+                                              .skill-name Bower
+
+        section.map
+            #map
+            .contacts
+                include ../common/my-contacts
+        //Подвал
+        include  ../common/footer
+        include  ../common/preloader
+        script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtnREyc4HgRBTafjCvQDAORAEeUNMhjAo")

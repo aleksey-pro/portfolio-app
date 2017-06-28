@@ -1,0 +1,146 @@
+.about {
+  @extend %clearfix;
+  background: $olive;
+  position: relative;
+  display: flex;
+
+  @include tablets {
+    display: block;
+  }
+}
+
+.about-left, .about-right {
+  float: left;
+  width: 50%;
+  position: relative;
+
+  @include tablets {
+    float: none;
+    width: 100%;
+  }
+}
+
+.about-left {
+  background: $olive;
+}
+
+.about-right {
+  background: $beige;
+
+  @include tablets {
+    padding-top: 45px;
+  }
+}
+
+.about__title {
+  margin-bottom: 45px;
+
+  @include tablets {
+    margin: 45px 0;
+  }
+
+  @include phones {
+    margin: 27px 0;
+  }
+
+}
+
+.about-data {
+  margin-left: 35px;
+  padding-bottom: 80px;
+
+  @include tablets {
+    margin-left: 0;
+    padding-bottom: 50px;
+  }
+}
+
+.skills {
+  @include tablets {
+    margin: 0 auto;
+  }
+}
+
+.about-user-info {
+  margin-right: 25px;
+
+  @include tablets {
+    margin-right: 0;
+  }
+
+  &__text {
+    margin: 0 8px 10px;
+
+    @include tablets {
+      margin: 0 140px;
+      padding-left: 5px;
+      padding-right: 5px;
+      text-align: justify;
+    }
+
+    @include phones {
+      margin: 0;
+    }
+
+  }
+}
+
+.about-data__content {
+  display: flex;
+
+  @include tablets {
+    text-align: center;
+  }
+
+}
+
+.about-user-info__title {
+  text-align: center;
+  margin: 6px auto 38px;
+}
+
+
+.map {
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 960px;
+}
+
+.gmnoprint span, .gmnoprint a, .gm-style-cc a {
+  display: none;
+}
+
+.contacts {
+  @include centered-by-translate();
+  padding-bottom: 195px;
+
+  @include tablets {
+    padding-bottom: 230px;
+  }
+
+  @include phones {
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(0, 0);
+  }
+}
+
+@media screen and (min-width: 1800px) {
+
+  .about__title, .about__user {
+    float: left;
+  }
+
+  .about__title {
+    width: 48%;
+  }
+
+  .about__user {
+    width: 52%;
+  }
+}
+

@@ -1,0 +1,63 @@
+.login {
+  width: 380px;
+  background-color: rgba($dark-green, 0.7);
+  padding: 0 20px;
+  text-align: center;
+
+  @include phones {
+    width: 300px;
+  }
+}
+
+.login__title {
+  color: #fff !important;
+  margin: 60px 0 60px;
+
+  &:after {
+    background: #fff !important;
+  }
+}
+
+
+.check-form__quest {
+  margin: 10px 0;
+}
+
+
+@include placeholder {
+  color: $brown;
+  font-family: "Roboto-Regular", Arial, sans-serif;
+  opacity: 0.5;
+}
+
+.login__lane {
+  position: relative;
+  height: 40px;
+  margin-bottom: 25px;
+}
+
+.login__icons {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background-color: #f0efe9;
+  width: 45px;
+  padding: 10px;
+  border-radius: 20px 0 0 20px;
+}
+
+.login__icon {
+  fill: #c4cbcd;
+}
+
+.login__field {
+  color: $brown;
+  height: 40px;
+  padding-left: 50px;
+  @include border-radius(20px);
+  border: none;
+  width: 100%;
+  outline: none;
+}
+

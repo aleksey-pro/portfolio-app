@@ -1,0 +1,75 @@
+.header{
+  @extend %clearfix;
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+
+//.header__bg {
+//  background: #fff url('../../assets/img/header-bg.jpg') center center no-repeat;
+//  background-size: cover;
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  right: 0;
+//  min-height: 600px;
+//}
+
+.Background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), transparent 50%, rgba(0, 0, 0, 0.5));
+}
+
+
+.header__socials {
+  position: absolute;
+  left: 30px;
+  top: 35px;
+
+  @include phones {
+    top: 15px;
+    left: 10px;
+  }
+
+}
+
+.header__title {
+  height: 280px;
+  width: 70%;
+  @include centered-by-margin(-35%, -140px);
+}
+
+.svg-title {
+  fill: rgba(255, 255, 255, 0.2);
+}
+
+.header__svg-title {
+  width: 100%;
+  height: 230px;
+  @include centered-by-margin(-50%, -115px);
+}
+
+.blog__svg-title {
+  @include centered-by-margin(-50%, -5%);
+  width: 100%;
+  height: 190px;
+}
+
+.header__desc {
+  text-align: center;
+  color: #fff;
+}
+

@@ -1,0 +1,52 @@
+.title {
+  color: $main-font-color;
+  font-family: 'Sansus Webissimo', Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 63px;
+  display: block;
+  position: relative;
+  text-align: center;
+  line-height: 1.15;
+
+  margin-top: 0;
+  font-weight: normal;
+
+  @include tablets {
+    font-size: 49px;
+    line-height: 1.02;
+  }
+
+  @include phones {
+    font-size: 35px;
+    line-height: 1.48;
+  }
+
+  &__svg-bg {
+    @include centered-by-translate();
+    fill: rgba($brand-green, 0.1);
+    width: 60%;
+
+    @include tablets {
+       width: 30%;
+    }
+
+    @include phones {
+      width: 60%;
+    }
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    @include centered-by-translate(x);
+    background: $main-font-color;
+    width: 90px;
+    height: 3px;
+    margin-top: 15px;
+
+    @include phones {
+      margin-top: 0;
+    }
+  }
+}
+

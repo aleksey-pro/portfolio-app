@@ -1,0 +1,133 @@
+.welcome {
+  background: #fff url('../../assets/img/water.jpg') center center no-repeat;
+  background-size: cover;
+  @extend %clearfix;
+}
+
+.Background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.Background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), transparent 50%, rgba(0, 0, 0, 0.5));
+}
+
+
+.welcome__auth {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+
+  .log-button {
+    display: block;
+    border: 1px solid #fff;
+    @include border-radius(20px);
+    height: 45px;
+    width: 180px;
+    color: #fff;
+    font-family: 'Roboto-Medium', Arial, sans-serif;
+    padding: 0 27px;
+    line-height: 45px;
+    text-align: center;
+    text-decoration: none;
+    transition: all .5s  ease-out;
+
+    &:hover {
+      background-color: #fff;
+      color: $main-font-color;
+    }
+
+  }
+
+  @include phones {
+    right: 0;
+    top: 10px;
+    @include centered-by-translate(x);
+  }
+
+}
+
+.welcome-user {
+  margin-bottom: 30px;
+}
+
+.login-block-wrapper {
+  @include centered-by-translate();
+  top: 45%;
+
+  @include tablets {
+    top: 57%;
+  }
+
+  @include phones {
+    top: 50%;
+  }
+}
+
+.login-block {
+  background-color: rgba($dark-green, 0.7);
+  padding: 30px 20px 0 20px;
+  text-align: center;
+
+  @include phones {
+    width: 300px;
+  }
+}
+
+.user__photo {
+  margin-bottom: 20px;
+}
+
+.user__name {
+  margin-bottom: 0;
+
+  @include tablets {
+    font-size: 28px;
+  }
+
+  @include phones {
+    font-size: 21px;
+  }
+
+}
+
+.user__desc, .welcome-socials {
+  margin-bottom: 40px;
+
+  @include tablets {
+    margin-bottom: 20px;
+  }
+}
+
+
+.footer-welcome {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+
+  color: #fff;
+  text-align: center;
+  font-family: 'Roboto-Regular', Arial,sans-serif;
+
+@media screen and (max-height: 610px){
+    height: 30px;
+    line-height: 16px;
+  }
+
+@media screen and (min-width: 470px){
+    height: 30px;
+    line-height: 16px;
+}
+
+}
