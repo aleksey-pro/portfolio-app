@@ -76,6 +76,13 @@ app.use('/contact', require('./routes/mail'));
 app.use('/login', require('./routes/login'));
 app.use('/admin', require('./routes/admin'));
 
+// app.use('/addskills', require('./routes/addskills'));
+// app.use('/addpost', require('./routes/addpost'));
+// app.use('/blog', require('./routes/blog'));
+// app.use('/index', require('./routes/index'));
+//app.use('/blog', require('./routes/blog'));
+
+
 // 404 catch-all handler (middleware)
 app.use(function (req, res, next) {
   res.status(404);
