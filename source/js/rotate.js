@@ -9,7 +9,8 @@ function rotateModule() {
     button.style.display = 'none';
   };
   
-  var _backFlip = function() {
+  var _backFlip = function(e) {
+    e.preventDefault();
     let container = document.querySelector('.flip-container');
     container.classList.remove('active');
     button.style.display = 'block';

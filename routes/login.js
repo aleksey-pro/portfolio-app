@@ -3,14 +3,6 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const crypto = require('crypto');
 
-router.get('/', function (req, res) {
-  let obj = {
-    title: 'Авторизация'
-  };
-  Object.assign(obj, req.app.locals.settings);
-  res.render('pages2/login', obj);
-});
-
 router.post('/', (req, res) => {
   //требуем наличия логина и пароля в теле запроса
   if (!req.body.login || !req.body.password) {

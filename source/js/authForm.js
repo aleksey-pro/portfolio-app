@@ -1,62 +1,73 @@
+import prepareSend from './prepareSend';
+
+
 function formModule() {
-  var authform = $('#auth_form');
-  var loginBtn = $('#auth');
-  var flag = true;
+  const loginBtn = $('#auth');
+  const formLogin = document.querySelector('#auth_form');
+  const $formLogin = $('#auth_form');
   
-  var init = function(){
-    _setUpListeners();
-  };
-  
-  function _validateForm(authform) {
-    var authElements = authform.find('input, checkbox, radio').not('input[type="file"], input[type="hidden"]'),
-      valid = true;
-    var checked = $('#man').prop('checked');
-    var radioSet = $('#yes').prop('checked');
+  function prepareSendLogin() {
     
-    $.each(authElements, function(index, value) {
-      var authelement = $(value),
-        values = authelement.val();
-      
-      if(values.length === 0 || !checked || !radioSet){
-        authelement.addClass('has-error');
-        authform.find('.error-mes').text('Заполните все поля').show();
-        valid = false;
-      }
-      else {
-        loginBtn.attr('href', 'admin.html');
-        authform.find('.error-mes').hide();
-        loginBtn.find('.user-nav__link').text('Войти');
-        flag = false;
-        loginBtn.trigger('click');
+    let data = {
+      login: formLogin.login.value,
+      password: formLogin.password.value
+    };
+    
+    prepareSend('/login', formLogin, data, function (data) {
+      if (data === 'Авторизация успешна!') {
+        location.href = '/admin';
       }
     });
+  }
+  
+  function _submitEvent(e) {
+    e.preventDefault();
+    _validateForm($formLogin);
+    if (!_validateForm($formLogin)){
+      return false;
+    }else
+      prepareSendLogin();
+  }
     
+  function _setUpListeners() {
+    if (formLogin) {
+      formLogin.addEventListener('submit', _submitEvent);
+      formLogin.addEventListener('keydown', '.has-error', _removeError);
+    }
+  }
+    
+  function _validateForm($formLogin) {
+      
+    var authElements = $formLogin.find('input, checkbox, radio').not('input[type="file"], input[type="hidden"], input[type="submit"]');
+    var checked = $('#man').prop('checked');
+    var radioSet = $('#yes').prop('checked');
+    var valid = true;
+
+    $.each(authElements, function (index, value) {
+      var authelement = $(value),
+        values = authelement.val();
+  
+      if (values.length === 0 || !checked || !radioSet) {
+        authelement.addClass('has-error');
+        $('.status').text('Заполните все поля');
+        authelement.on('keydown', _removeError());
+        valid = false;
+      }
+    });
+  
     return valid;
   }
-
-  
-  function clickEv(e){
-    if(flag) {
-      e.preventDefault();
-    }
-    _validateForm(authform);
-  }
-  
-  function _setUpListeners() {
-    authform.on('keydown', '.has-error', _removeError);
-    loginBtn.on('click', clickEv);
-  }
-  
-  
+    
   function _removeError() {
     $(this).removeClass('has-error');
-    loginBtn.attr('href', '');
-    authform.find('.error-mes').hide();
+    alert.text = '';
   }
-  
+    
   return {
-    init: init
+    init: _setUpListeners
   };
+    
   
-}
+}//formModule
+
 module.exports = formModule;

@@ -5,7 +5,7 @@ const rl = readline.createInterface({input: process.stdin, output: process.stdou
 const config = require('./config');
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://root:12345@ds137191.mlab.com:37191/testing');
-mongoose.connect('mongodb://anxieter:181621@ds111262.mlab.com:11262/portfolio');
+mongoose.connect('mongodb://root:181621@ds111262.mlab.com:11262/portfolio');
 // mongoose
 //   .connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
 //     user: config.db.user,

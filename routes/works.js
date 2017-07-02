@@ -2,32 +2,47 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 const config = require('../config.json');
+const mongoose = require('mongoose');
+const content = require('../views/data/content.json');
 
 router.get('/', function (req, res) {
   let obj = {
-    title: 'Связаться со мной'
+    title: 'Мои работы',
+    reviews: content.reviews
   };
   Object.assign(obj, req.app.locals.settings);
-  res.render('pages2/contact', obj);
+  
+  res.render('pages/works', obj);
+  
+  // const Model = mongoose.model('pic');
+  // //получаем список работ из базы
+  // Model
+  //   .find()
+  //   .then(items => {
+  //     // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
+  //     // записей в блоге
+  //     Object.assign(obj, {items: items});
+  //     res.render('pages/works', obj);
+  //   });
 });
 
 router.post('/', function (req, res) {
-    //требуем наличия имени, обратной почты и текста
+  //требуем наличия имени, обратной почты и текста
   if (!req.body.name || !req.body.email || !req.body.text) {
     //если что-либо не указано - сообщаем об этом
     return res.json({status: 'Укажите данные!'});
   }
-    //инициализируем модуль для отправки писем и указываем данные из конфига
+  //инициализируем модуль для отправки писем и указываем данные из конфига
   const transporter = nodemailer.createTransport(config.mail.smtp);
   const mailOptions = {
     from: `"${req.body.name}" <${req.body.email}>`,
     to: config.mail.smtp.auth.user,
     subject: config.mail.subject,
     text: req
-    .body
-    .text
-    .trim()
-    .slice(0, 500) + `\n Отправлено с: <${req.body.email}>`
+      .body
+      .text
+      .trim()
+      .slice(0, 500) + `\n Отправлено с: <${req.body.email}>`
   };
   //отправляем почту
   transporter.sendMail(mailOptions, function (error, info) {

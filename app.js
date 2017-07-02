@@ -70,17 +70,19 @@ app.use(express.static(path.join(__dirname, currentStatic)));
 
 
 app.use('/', require('./routes/index'));
-app.use('/works', require('./routes/index'));
-app.use('/about', require('./routes/index'));
-app.use('/contact', require('./routes/mail'));
-app.use('/login', require('./routes/login'));
+app.use('/index', require('./routes/index'));
+app.use('/works', require('./routes/works'));
+app.use('/about', require('./routes/about'));
+app.use('/blog', require('./routes/blog'));
+
 app.use('/admin', require('./routes/admin'));
 
-// app.use('/addskills', require('./routes/addskills'));
-// app.use('/addpost', require('./routes/addpost'));
-// app.use('/blog', require('./routes/blog'));
-// app.use('/index', require('./routes/index'));
-//app.use('/blog', require('./routes/blog'));
+app.use('/contact', require('./routes/works'));
+app.use('/login', require('./routes/login'));
+
+// app.use('/addskills', require('./routes/addskills')); -- после как настрою с базой
+// app.use('/addpost', require('./routes/addpost')); -- после как настрою с базой
+
 
 
 // 404 catch-all handler (middleware)

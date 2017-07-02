@@ -29,9 +29,9 @@ block content
                                         svg(width='20px' height='20px').login__icon
                                             use(xlink:href=svgPath)
                                     input(type=type placeholder=placeholder id=`auth-input--${id}` name=id).login__field
-                        form.login-form
+                        .login-form
                             +inputs('text','Логин', 'login', 'assets/img/sprite.svg#components--auth--login')
-                            +inputs('text','Пароль', 'pass', 'assets/img/sprite.svg#components--auth--password')
+                            +inputs('text','Пароль', 'password', 'assets/img/sprite.svg#components--auth--password')
                             .check-form
                                 input(type='checkbox' id='man' name='man' class='check-input')
                                 span.checkbox-custom
@@ -43,10 +43,8 @@ block content
                                 input(type='radio' id='no' name='choose' class='choose-input--no')
                                 span(class='radio-custom' id='radio-no')
                                 label(class='choose-label choose-label--no' for='no') Не уверен
-                            .server-mes.error-mes
-                            .server-mes.success-mes
+                            .status
                             nav.user-nav.login-btns
-                                a(href='#' class='user-nav__item login-nav__item' id='flip')
+                                a(href='' class='user-nav__item login-nav__item' id='flip')
                                     span.user-nav__link На главную
-                                a(href='' class='user-nav__item login-nav__item' id='auth')
-                                    span.user-nav__link Авторизация
+                                input(type='submit' class='user-nav__item login-nav__item' id='auth' value='Авторизация')

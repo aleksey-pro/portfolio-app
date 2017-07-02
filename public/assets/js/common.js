@@ -160,7 +160,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = prepareSend;
 
-var _sendAjax = __webpack_require__(5);
+var _sendAjax = __webpack_require__(32);
 
 var _sendAjax2 = _interopRequireDefault(_sendAjax);
 
@@ -180,7 +180,7 @@ function prepareSend(url, form, data, cb) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 32:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

@@ -38,7 +38,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createCanvas = createCanvas;
 
-var _curry = __webpack_require__(20);
+var _curry = __webpack_require__(19);
 
 var _curry2 = _interopRequireDefault(_curry);
 
@@ -17330,7 +17330,7 @@ function createCanvas(width, height) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(25)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(24)(module)))
 
 /***/ }),
 /* 4 */
@@ -17339,24 +17339,18 @@ function createCanvas(width, height) {
 "use strict";
 
 
-var _prepareSend = __webpack_require__(1);
-
-var _prepareSend2 = _interopRequireDefault(_prepareSend);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rotateModule = __webpack_require__(6);
-var parallaxModule = __webpack_require__(7);
-var initMap = __webpack_require__(8);
-var loadPolyfills = __webpack_require__(9);
-var blur = __webpack_require__(14);
-var preload = __webpack_require__(15);
-var slide = __webpack_require__(16);
-var works = __webpack_require__(17);
-var blog = __webpack_require__(18);
-var water = __webpack_require__(19);
-var arrow = __webpack_require__(31);
-var form = __webpack_require__(32);
+var rotateModule = __webpack_require__(5);
+var parallaxModule = __webpack_require__(6);
+var initMap = __webpack_require__(7);
+var loadPolyfills = __webpack_require__(8);
+var blur = __webpack_require__(13);
+var preload = __webpack_require__(14);
+var slide = __webpack_require__(15);
+var works = __webpack_require__(16);
+var blog = __webpack_require__(17);
+var water = __webpack_require__(18);
+var arrow = __webpack_require__(30);
+var form = __webpack_require__(31);
 var auth = __webpack_require__(33);
 
 var loadPoly = new loadPolyfills();
@@ -17408,43 +17402,8 @@ if (document.body.classList.contains('hasMap')) {
   myMapsModule.init();
 }
 
-var formMail = document.querySelector('#mail');
-var formLogin = document.querySelector('#login');
-
-if (formMail) {
-  formMail.addEventListener('submit', prepareSendMail);
-}
-if (formLogin) {
-  formLogin.addEventListener('submit', prepareSendLogin);
-}
-
-function prepareSendMail(e) {
-  e.preventDefault();
-  var data = {
-    name: formMail.name.value,
-    email: formMail.email.value,
-    text: formMail.text.value
-  };
-  (0, _prepareSend2.default)('/contact', formMail, data);
-}
-
-function prepareSendLogin(e) {
-  e.preventDefault();
-  var data = {
-    login: formLogin.login.value,
-    password: formLogin.password.value
-  };
-
-  (0, _prepareSend2.default)('/login', formLogin, data, function (data) {
-    if (data === 'Авторизация успешна!') {
-      location.href = '/admin';
-    }
-  });
-}
-
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17461,7 +17420,8 @@ function rotateModule() {
     button.style.display = 'none';
   };
 
-  var _backFlip = function _backFlip() {
+  var _backFlip = function _backFlip(e) {
+    e.preventDefault();
     var container = document.querySelector('.flip-container');
     container.classList.remove('active');
     button.style.display = 'block';
@@ -17484,7 +17444,7 @@ function rotateModule() {
 module.exports = rotateModule;
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17518,7 +17478,7 @@ function parallax() {
 module.exports = parallax;
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17619,14 +17579,14 @@ function initMap() {
 module.exports = initMap;
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var svg = __webpack_require__(10);
-__webpack_require__(11).polyfill();
+var svg = __webpack_require__(9);
+__webpack_require__(10).polyfill();
 
 function loadSVG() {
   function loadSVGs() {
@@ -17641,7 +17601,7 @@ function loadSVG() {
 module.exports = loadSVG;
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, factory) {
@@ -17754,7 +17714,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
 });
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {var require;var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -17887,7 +17847,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
     function lib$es6$promise$asap$$attemptVertx() {
       try {
         var r = require;
-        var vertx = __webpack_require__(13);
+        var vertx = __webpack_require__(12);
         lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
         return lib$es6$promise$asap$$useVertxTimer();
       } catch(e) {
@@ -18718,10 +18678,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
 }).call(this);
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -18911,13 +18871,13 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18946,7 +18906,7 @@ function blurModule() {
 module.exports = blurModule;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19015,7 +18975,7 @@ var preloaderModule = function preloaderModule() {
 module.exports = preloaderModule;
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19060,7 +19020,7 @@ function menuHandler() {
 module.exports = menuHandler;
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19159,7 +19119,7 @@ function SliderModule() {
 module.exports = SliderModule;
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19248,7 +19208,7 @@ function blogModule() {
 module.exports = blogModule;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19256,15 +19216,15 @@ module.exports = blogModule;
 
 var _canvas = __webpack_require__(2);
 
-var _haze = __webpack_require__(21);
+var _haze = __webpack_require__(20);
 
 var _haze2 = _interopRequireDefault(_haze);
 
-var _hazeWater = __webpack_require__(28);
+var _hazeWater = __webpack_require__(27);
 
 var _hazeWater2 = _interopRequireDefault(_hazeWater);
 
-var _gsap = __webpack_require__(29);
+var _gsap = __webpack_require__(28);
 
 var _gsap2 = _interopRequireDefault(_gsap);
 
@@ -19397,7 +19357,7 @@ function waterModule() {
 module.exports = waterModule;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 var slice = Array.prototype.slice;
@@ -19500,7 +19460,7 @@ module.exports = curry;
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19510,11 +19470,11 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _glObj = __webpack_require__(22);
+var _glObj = __webpack_require__(21);
 
 var _glObj2 = _interopRequireDefault(_glObj);
 
-var _simple = __webpack_require__(24);
+var _simple = __webpack_require__(23);
 
 var _simple2 = _interopRequireDefault(_simple);
 
@@ -19522,11 +19482,11 @@ var _canvas = __webpack_require__(2);
 
 var _lodash = __webpack_require__(3);
 
-var _fill = __webpack_require__(26);
+var _fill = __webpack_require__(25);
 
 var _fill2 = _interopRequireDefault(_fill);
 
-var _eventDispatcher = __webpack_require__(27);
+var _eventDispatcher = __webpack_require__(26);
 
 var _eventDispatcher2 = _interopRequireDefault(_eventDispatcher);
 
@@ -19724,7 +19684,7 @@ Haze.prototype = (0, _lodash.assign)({
 exports.default = Haze;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19734,7 +19694,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _webgl = __webpack_require__(23);
+var _webgl = __webpack_require__(22);
 
 var WebGL = _interopRequireWildcard(_webgl);
 
@@ -19790,7 +19750,7 @@ GL.prototype = {
 exports.default = GL;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19925,13 +19885,13 @@ function error(msg) {
 }
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = "precision mediump float;\r\n\r\nattribute vec2 a_position;\r\nvarying vec2 v_position;\r\n\r\nvoid main() {\r\n  v_position=(a_position+1.0)*0.5;\r\n  v_position.y=1.0-v_position.y;\r\n  gl_Position = vec4(a_position,0.0,1.0);\r\n}\r\n"
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -19959,7 +19919,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19996,7 +19956,7 @@ exports.default = function (imageWidth, imageHeight, containerWidth, containerHe
 };
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20043,13 +20003,13 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = "precision mediump float;\r\n\r\n/*\r\nMESSY CODE AHEAD\r\n(sorry, experimenting)\r\n*/\r\n\r\nuniform float u_time;\r\nvarying vec2 v_position;\r\nuniform sampler2D u_image;\r\nuniform sampler2D u_maps;\r\nuniform vec2 u_mouse;\r\nuniform float u_dpi;\r\nuniform vec2 u_resolution;\r\n\r\nvec2 pos(){\r\n  return vec2(0.0,0.0);\r\n}\r\n\r\nvec4 blend(vec4 bg,vec4 fg){\r\n  vec3 bgm=bg.rgb*bg.a;\r\n  vec3 fgm=fg.rgb*fg.a;\r\n  float ia=1.0-fg.a;\r\n  float a=(fg.a + bg.a * ia);\r\n  vec3 rgb;\r\n  if(a!=0.0){\r\n    rgb=(fgm + bgm * ia) / a;\r\n  }else{\r\n    rgb=vec3(0.0,0.0,0.0);\r\n  }\r\n  return vec4(rgb,a);\r\n}\r\nvec2 pixel(){\r\n  return vec2(1.0*u_dpi)/u_resolution;\r\n}\r\nfloat wave(float x,float freq, float speed){\r\n  return sin(x*freq+((u_time*(3.1415/2.0))*speed));\r\n}\r\nvec2 waves(vec2 pos){\r\n  vec4 maps=texture2D(u_maps,pos);\r\n  float mask=maps.r;\r\n  float y=maps.g;\r\n  float y2=pow(y,2.0);\r\n\r\n  vec2 intensity=vec2(\r\n    0.5-(y2*0.5),\r\n    0.2+(y2*1.8)\r\n  )*pixel();\r\n\r\n  vec2 waves=vec2(\r\n    wave(y,400.0-(y2*200.0),-0.03),\r\n     wave(y,400.0-(y2*400.0*0.05),-0.045)\r\n    +wave(y,900.0-(y2*900.0*0.05),-0.05)\r\n    +wave(pos.x,20.0+(y2*20.0*1.5),-0.01)\r\n  );\r\n  return pos+(waves*intensity*mask);\r\n}\r\nvec2 depth(vec2 pos){\r\n  vec2 intensity=vec2(0.01,0.01);\r\n  float d=0.05-pow(texture2D(u_maps,pos).b,1.0);\r\n  return pos+(intensity*u_mouse*d);\r\n}\r\nvoid main(){\r\n  vec2 pos=v_position.xy;\r\n\r\n  vec2 turbulence=depth(waves(pos));\r\n  vec2 noTurbulence=depth(pos);\r\n  vec4 c=texture2D(u_image,turbulence);\r\n\r\n\r\n  gl_FragColor=vec4(c.rgb,1.0);\r\n\r\n}\r\n"
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26095,7 +26055,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 						if (global) {
 							_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 							hasModule = (typeof(module) !== "undefined" && module.exports);
-							if (!hasModule && "function" === "function" && __webpack_require__(30)){ //AMD
+							if (!hasModule && "function" === "function" && __webpack_require__(29)){ //AMD
 								!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 							} else if (hasModule){ //node
@@ -27913,7 +27873,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -27922,7 +27882,7 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27962,23 +27922,48 @@ function ArrowModule() {
 module.exports = ArrowModule;
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-function formModule() {
+var _prepareSend = __webpack_require__(1);
 
-  var form = $('#ajax_form');
+var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
-  var init = function init() {
-    _setUpListeners();
-  };
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-  function _validateForm(form) {
+function sendForm() {
+  var formMail = document.querySelector('#mail');
 
-    var elements = form.find('input, textarea').not('input[type="file"], input[type="hidden"]'),
+  function _setUpListeners() {
+    if (formMail) {
+      formMail.addEventListener('submit', _submitEvent);
+      formMail.addEventListener('keydown', '.has-error', _removeError);
+      formMail.addEventListener('reset', _clearForm);
+    }
+  }
+
+  function _submitEvent() {
+    _validateForm();
+    if (!_validateForm(formMail)) return false;
+    // prepareSendMail();
+  }
+
+  function prepareSendMail(e) {
+    e.preventDefault();
+    var data = {
+      name: formMail.name.value.trim(),
+      email: formMail.email.value.trim(),
+      text: formMail.text.value.trim()
+    };
+    (0, _prepareSend2.default)('/contact', formMail, data);
+  }
+
+  function _validateForm(formMail) {
+
+    var elements = formMail.find('input, textarea').not('input[type="file"], input[type="hidden"]'),
         valid = true;
 
     $.each(elements, function (index, val) {
@@ -27994,87 +27979,79 @@ function formModule() {
     return valid;
   }
 
-  function _setUpListeners() {
-    form.on('keydown', '.has-error', _removeError);
-    form.on('reset', _clearForm);
-    form.on('submit', _submitForm);
-  }
-
   function _removeError() {
     // Убирает красную обводку у элементов форм
     $(this).removeClass('has-error');
   }
 
   function _clearForm() {
-    var form = $(this);
-    form.find('.has-error').removeClass('has-error');
-    form.find('.error-mes, success-mes').text('').hide();
+    var formMail = $(this);
+    formMail.find('.has-error').removeClass('has-error');
+    formMail.find('.error-mes, success-mes').text('').hide();
   }
-
-  function _submitForm(ev, form) {
-    ev.preventDefault();
-
-    var form = $(this),
-        url = './form.php',
-        defObject = _ajaxForm(form, url);
-
-    if (defObject) {
-      defObject.done(function (resp) {
-        var mes = resp.mes,
-            status = resp.status;
-
-        if (status === 'OK') {
-          form.trigger('reset');
-          form.find('.success-mes').text(mes).show();
-        } else {
-          form.find('.error-mes').text(mes).show();
-        }
-      });
-    }
-  }
-
-  function _ajaxForm(form, url) {
-
-    if (!_validateForm(form)) return false; // Возвращает false, если не проходит валидацию
-    var data = form.serialize(); // собираем данные из формы в объект data
-
-    return $.ajax({ // Возвращает Deferred Object
-      type: 'POST',
-      url: url,
-      dataType: 'JSON',
-      data: data
-    }).fail(function (resp) {
-      form.find('.error-mes').text('На сервере произошла ошибка').show();
-    });
-  };
 
   return {
-    init: init
+    init: _setUpListeners
   };
 }
-module.exports = formModule;
+
+module.exports = sendForm;
 
 /***/ }),
+/* 32 */,
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
+var _prepareSend = __webpack_require__(1);
+
+var _prepareSend2 = _interopRequireDefault(_prepareSend);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function formModule() {
-  var authform = $('#auth_form');
+
   var loginBtn = $('#auth');
-  var flag = true;
+  var formLogin = document.querySelector('#auth_form');
+  var $formLogin = $('#auth_form');
 
-  var init = function init() {
-    _setUpListeners();
-  };
+  function prepareSendLogin() {
 
-  function _validateForm(authform) {
-    var authElements = authform.find('input, checkbox, radio').not('input[type="file"], input[type="hidden"]'),
-        valid = true;
+    var data = {
+      login: formLogin.login.value,
+      password: formLogin.password.value
+    };
+
+    (0, _prepareSend2.default)('/login', formLogin, data, function (data) {
+      if (data === 'Авторизация успешна!') {
+        location.href = '/admin';
+      }
+    });
+  }
+
+  function _submitEvent(e) {
+    e.preventDefault();
+    _validateForm($formLogin);
+    if (!_validateForm($formLogin)) {
+      return false;
+    } else prepareSendLogin();
+  }
+
+  function _setUpListeners() {
+    if (formLogin) {
+      formLogin.addEventListener('submit', _submitEvent);
+      formLogin.addEventListener('keydown', '.has-error', _removeError);
+    }
+  }
+
+  function _validateForm($formLogin) {
+
+    var authElements = $formLogin.find('input, checkbox, radio').not('input[type="file"], input[type="hidden"], input[type="submit"]');
     var checked = $('#man').prop('checked');
     var radioSet = $('#yes').prop('checked');
+    var valid = true;
 
     $.each(authElements, function (index, value) {
       var authelement = $(value),
@@ -28082,42 +28059,25 @@ function formModule() {
 
       if (values.length === 0 || !checked || !radioSet) {
         authelement.addClass('has-error');
-        authform.find('.error-mes').text('Заполните все поля').show();
+        $('.status').text('Заполните все поля');
+        authelement.on('keydown', _removeError());
         valid = false;
-      } else {
-        loginBtn.attr('href', 'admin.html');
-        authform.find('.error-mes').hide();
-        loginBtn.find('.user-nav__link').text('Войти');
-        flag = false;
-        loginBtn.trigger('click');
       }
     });
 
     return valid;
   }
 
-  function clickEv(e) {
-    if (flag) {
-      e.preventDefault();
-    }
-    _validateForm(authform);
-  }
-
-  function _setUpListeners() {
-    authform.on('keydown', '.has-error', _removeError);
-    loginBtn.on('click', clickEv);
-  }
-
   function _removeError() {
     $(this).removeClass('has-error');
-    loginBtn.attr('href', '');
-    authform.find('.error-mes').hide();
+    alert.text = '';
   }
 
   return {
-    init: init
+    init: _setUpListeners
   };
-}
+} //formModule
+
 module.exports = formModule;
 
 /***/ })

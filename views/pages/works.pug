@@ -26,57 +26,57 @@ html(lang="ru-RU")
                         use(xlink:href='assets/img/sprite.svg#pages--works--works_title')
                     .title.portfolio-head__title
                         | Мои работы
-                .slider
-                    .slider__left
-                        .works
-                            ul.works__list
-                                li.works__item.work-sample.work-sample--active
-                                    .subtitle.works__sample__title сайт строительной компании
-                                li.works__item.work-sample
-                                    .subtitle.work-sample__title
-                                li.works__item.work-sample
-                                    .subtitle.work-sample__title
-                                li.works__item.work-sample
-                                    .subtitle.work-sample__title
-                            .works__list-subtitle
-                                | HTML, CSS, JAVASCRIPT
-                            ul.works__links
-                                a(target='blank').works__links-btn.button.works__links-btn-active
-                                    svg.button-icon
-                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
-                                        span Посмотреть сайт
-                                a(target='blank').works__links-btn.button
-                                    svg.button-icon
-                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
-                                        span Посмотреть сайт
-                                a(target='blank').works__links-btn.button
-                                    svg.button-icon
-                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
-                                        span Посмотреть сайт
-                                a(target='blank').works__links-btn.button
-                                    svg.button-icon
-                                        use(xlink:href='assets/img/sprite.svg#components--button--link')
-                                        span Посмотреть сайт
-                    .slider__right
-                        .slider__active
-                            each index in items
-                                img(src=`${index.picture}` alt=`${index.name}`).slider__active-image
-                    .slider__btns
-                        a(href='#').slider__btn.btn-down
-                            svg.slider__btn-icon
-                                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_down')
-                            ul.slider__list.slider__list-up
-                                each index in items
-                                    li.slider__item.active
-                                        img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
-                        a(href='#').slider__btn.btn-up
-                            svg.slider__btn-icon
-                                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_up')
-                            ul.slider__list.slider__list-down
-                                ul.slider__list.slider__list-up
-                                    each index in items
-                                        li.slider__item.active
-                                            img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
+                //.slider
+                //    .slider__left
+                //        .works
+                //            ul.works__list
+                //                li.works__item.work-sample.work-sample--active
+                //                    .subtitle.works__sample__title сайт строительной компании
+                //                li.works__item.work-sample
+                //                    .subtitle.work-sample__title
+                //                li.works__item.work-sample
+                //                    .subtitle.work-sample__title
+                //                li.works__item.work-sample
+                //                    .subtitle.work-sample__title
+                //            .works__list-subtitle
+                //                | HTML, CSS, JAVASCRIPT
+                //            ul.works__links
+                //                a(target='blank').works__links-btn.button.works__links-btn-active
+                //                    svg.button-icon
+                //                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                //                        span Посмотреть сайт
+                //                a(target='blank').works__links-btn.button
+                //                    svg.button-icon
+                //                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                //                        span Посмотреть сайт
+                //                a(target='blank').works__links-btn.button
+                //                    svg.button-icon
+                //                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                //                        span Посмотреть сайт
+                //                a(target='blank').works__links-btn.button
+                //                    svg.button-icon
+                //                        use(xlink:href='assets/img/sprite.svg#components--button--link')
+                //                        span Посмотреть сайт
+                //    .slider__right
+                //        .slider__active
+                //            each index in items
+                //                img(src=`${index.picture}` alt=`${index.name}`).slider__active-image
+                //    .slider__btns
+                //        a(href='#').slider__btn.btn-down
+                //            svg.slider__btn-icon
+                //                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_down')
+                //            ul.slider__list.slider__list-up
+                //                each index in items
+                //                    li.slider__item.active
+                //                        img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
+                //        a(href='#').slider__btn.btn-up
+                //            svg.slider__btn-icon
+                //                use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_up')
+                //            ul.slider__list.slider__list-down
+                //                ul.slider__list.slider__list-up
+                //                    each index in items
+                //                        li.slider__item.active
+                //                            img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
             section.reviews
                 .reviews__blur-back
                     img(class='reviews__img blur-background' src='../../assets/img/aboout_bg_1200.png' alt='works')

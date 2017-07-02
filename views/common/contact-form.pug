@@ -1,6 +1,6 @@
 .form.blur-form__wrapper
     .blur-form
-    form(action='#' method='POST' id='ajax_form').form__content
+    form#mail(method="POST").form__content
         .subtitle.form__title
             | связаться со мной
         .form-fields
@@ -9,7 +9,7 @@
             .form-fields__form
                 +inputs('text','Имя', 'name')
                 +inputs('text','Email', 'email')
-                textarea(placeholder='Ваше сообщение', id='auth-input--mess' name='mess' rows='6').form-fields__field
+                textarea(placeholder='Ваше сообщение', id='auth-input--mess' name='text' rows='6').form-fields__field
             .server-mes.error-mes
             .server-mes.success-mes
         .user-nav.form-nav
