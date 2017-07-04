@@ -22,7 +22,8 @@ var formSkill = document.querySelector('#skillForm');
 if (formUpload && formBlog && formSkill) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  formSkill.addEventListener('submit', prepareSendSkill);
+  // formSkill.addEventListener('submit', prepareSendSkill);
+  formSkill.addEventListener('submit', require('./updateSkills'));
 }
 
 function prepareSendSkill(e) {
@@ -63,7 +64,7 @@ function prepareSendPost(e) {
   (0, _prepareSend2.default)('/admin/addpost', formBlog, data);
 }
 
-},{"./jTabs":2,"./prepareSend":3,"./upload":5}],2:[function(require,module,exports){
+},{"./jTabs":2,"./prepareSend":3,"./updateSkills":5,"./upload":6}],2:[function(require,module,exports){
 'use strict';
 
 function jTabsModule() {
@@ -161,6 +162,53 @@ exports.default = function (url, data, cb) {
 };
 
 },{}],5:[function(require,module,exports){
+'use strict';
+
+var _prepareSend = require('./prepareSend');
+
+var _prepareSend2 = _interopRequireDefault(_prepareSend);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var updateSkills = function updateSkills() {
+  var formSkills = document.querySelector('#skillForm');
+
+  var init = function init() {
+    _setUpListeners();
+  };
+
+  var _setUpListeners = function _setUpListeners() {
+    formSkills.addEventListener('submit', function (e) {
+      e.preventDefault();
+      _prepareSendSkills();
+    });
+  };
+
+  var _prepareSendSkills = function _prepareSendSkills() {
+    var data = {};
+    var itemsElement = document.querySelectorAll('.skill-section__title');
+
+    for (var i = 0; i < itemsElement.length; i++) {
+      var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+      data[itemsElement[i].textContent] = [];
+
+      for (var input = 0; input < inputs.length; input++) {
+        var a = inputs[input].name;
+        var b = inputs[input].value;
+        data[itemsElement[i].textContent].push({ name: a, value: b });
+      }
+    }
+    (0, _prepareSend2.default)('/addskills', formSkills, data);
+  };
+
+  return {
+    init: init
+  };
+};
+
+module.exports = updateSkills;
+
+},{"./prepareSend":3}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

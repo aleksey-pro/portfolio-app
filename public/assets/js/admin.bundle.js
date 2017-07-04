@@ -1,22 +1,22 @@
 webpackJsonp([1],{
 
-/***/ 34:
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _upload = __webpack_require__(35);
+var _upload = __webpack_require__(36);
 
 var _upload2 = _interopRequireDefault(_upload);
 
-var _prepareSend = __webpack_require__(1);
+var _prepareSend = __webpack_require__(0);
 
 var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var jTabsModule = __webpack_require__(36);
+var jTabsModule = __webpack_require__(37);
 var jQueryTabs = new jTabsModule();
 jQueryTabs.init();
 
@@ -27,7 +27,8 @@ var formSkill = document.querySelector('#skillForm');
 if (formUpload && formBlog && formSkill) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  formSkill.addEventListener('submit', prepareSendSkill);
+  // formSkill.addEventListener('submit', prepareSendSkill);
+  formSkill.addEventListener('submit', __webpack_require__(4));
 }
 
 function prepareSendSkill(e) {
@@ -70,7 +71,7 @@ function prepareSendPost(e) {
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -94,7 +95,7 @@ exports.default = function (url, data, cb) {
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -147,5 +148,5 @@ module.exports = jTabsModule;
 
 /***/ })
 
-},[34]);
+},[35]);
 //# sourceMappingURL=admin.bundle.js.map

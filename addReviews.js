@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- Задача скрипта - создать базу навыков
+ Задача скрипта - создать базу отзывов
  */
 
 //подключаем модули
@@ -21,15 +21,16 @@ mongoose.connect('mongodb://root:181621@ds111262.mlab.com:11262/portfolio');
 //   });
 
 require('./models/db-close');
-require('./models/skills');
-let Model = mongoose.model('skills');
+require('./models/reviews');
+let Model = mongoose.model('reviews');
 Model.remove({}).then(() => {
-  content.skills.forEach(item => {
-    let recordDb = new Model({ section: item.name, items: item.items });
+  content.reviews.forEach( (item, idx, arr) => {
+    // console.log(item.ReviewList);
+    let recordDb = new Model({ ReviewList: item.ReviewList});
     recordDb.save().then(
       //обрабатываем и отправляем ответ в браузер
       i => {
-        console.log('Запись успешно добавлена');
+        console.log('Запись успешно добавлена', recordDb);
       },
       e => {
         //если есть ошибки, то получаем их список и так же передаем в шаблон

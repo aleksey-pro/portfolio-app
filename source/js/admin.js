@@ -1,6 +1,7 @@
 import fileUpload from './upload';
 import prepareSend from './prepareSend';
 
+
 const jTabsModule = require('./jTabs');
 const jQueryTabs = new jTabsModule();
 jQueryTabs.init();
@@ -13,7 +14,8 @@ const formSkill = document.querySelector('#skillForm');
 if (formUpload && formBlog && formSkill) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  formSkill.addEventListener('submit', prepareSendSkill);
+  // formSkill.addEventListener('submit', prepareSendSkill);
+  formSkill.addEventListener('submit', require('./updateSkills'));
 }
 
 function prepareSendSkill(e) {

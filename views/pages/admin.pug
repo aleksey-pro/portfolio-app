@@ -20,65 +20,23 @@ html(lang="ru-RU")
                     a(class='admin-tabs__link' href='#')= tab
         .tabs-content
             form.admin-about#skillForm(method="POST")
-                .admin-about__title Страница "Обо мне"
                 .status
                 .admin-skills
-                    .admin-skill
-                        .admin-skill__title Frontend
-                        .admin-skill__items
-                            .admin-skill__item
-                                .admin-skill__name HTML
-                                .admin-skill__value
-                                    input.admin-skill__inp(type='text' name='num')
-                                span.admin-skill__perc %
-                            .admin-skill__item
-                                .admin-skill__name CSS
-                                .admin-skill__value
-                                    input.admin-skill__inp(type='text' name='num2')
-                                span.admin-skill__perc  %
-                            .admin-skill__item
-                                .admin-skill__name JavaScript
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                    .admin-skill
-                        .admin-skill__title Backend
-                        .admin-skill__items
-                            .admin-skill__item
-                                .admin-skill__name PHP
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                            .admin-skill__item
-                                .admin-skill__name Node.js
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                            .admin-skill__item
-                                .admin-skill__name Mongo.db
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                    .admin-skill
-                        .admin-skill__title Workflow
-                        .admin-skill__items
-                            .admin-skill__item
-                                .admin-skill__name Gulp
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                            .admin-skill__item
-                                .admin-skill__name Git
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                            .admin-skill__item
-                                .admin-skill__name Bower
-                                .admin-skill__value
-                                    input.admin-skill__inp
-                                span.admin-skill__perc  %
-                input(name="" type="submit" value="Сохранить").save-btn.admin-btn
-                input(name="" type="reset" value="Очистить").save-btn.admin-btn
+                    .status
+                    ul.admin-skills
+                        each skill in items
+                            li.admin-skill
+                                .admin-skill__title= skill.section
+                                ul.admin-skill__items
+                                    each lineSkill in skill.items
+                                        li.admin-skill__item
+                                            .admin-skill__name= lineSkill.name
+                                            .admin-skill__value
+                                                input.admin-skill__inp(type='text' name=`${lineSkill.name}` value=`${lineSkill.value}`)
+                                            span.admin-skill__perc %
+                input(type="submit" value="Сохранить" name="").save-btn.admin-btn
+                input(type="reset" value="Очистить" name="").save-btn.admin-btn
+
             form.admin-blog#blog( method="POST")
                 .admin-blog__title Страница "Блог"
                 .status

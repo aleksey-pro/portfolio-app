@@ -12,18 +12,28 @@ router.get('/', function (req, res) {
   };
   Object.assign(obj, req.app.locals.settings);
   
-  res.render('pages/works', obj);
+  const Model = mongoose.model('pic');
+  //получаем список работ из базы
+  Model
+    .find()
+    .then(items => {
+      // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
+      // записей в блоге
+      Object.assign(obj, {items: items});
+      res.render('pages/works', obj);
+    });
   
-  // const Model = mongoose.model('pic');
-  // //получаем список работ из базы
-  // Model
-  //   .find()
-  //   .then(items => {
-  //     // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
-  //     // записей в блоге
-  //     Object.assign(obj, {items: items});
-  //     res.render('pages/works', obj);
-  //   });
+  
+  const Model2 = mongoose.model('reviews');
+  //получаем список ревью из базы
+  Model2
+    .find()
+    .then(reviews => {
+      // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
+      // записей в блоге
+      Object.assign(obj, {ReviewList: reviews});
+      res.render('pages/works', obj);
+    });
 });
 
 router.post('/', function (req, res) {

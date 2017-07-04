@@ -1,26 +1,80 @@
 {
   "reviews": [{
-    "name": "Ковальчук Дмитрий",
-    "text": "Этот парень проходил обучение веб-разработке не где-то, а в Loftschool. 2 месяца самх тяжелых испытаний и бесонных ночей",
-    "who": "--основатель loftschool",
-    "path": "../../assets/img/review-1.png"
+
+    "ReviewList": [{
+      "name": "Ковальчук Дмитрий",
+      "text": "Этот парень проходил обучение веб-разработке не где-то, а в Loftschool. 2 месяца самх тяжелых испытаний и бесонных ночей",
+      "who": "--основатель loftschool",
+      "path": "../../assets/img/review-1.png"
+    }]
+
   },
     {
-      "name": "Сабанцев Владимир",
-      "text": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на старых браузерах",
-      "who": "--преподаватель loftschool",
-      "path": "../../assets/img/review-2.png"
+
+      "ReviewList": [{
+        "name": "Сабанцев Владимир",
+        "text": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на старых браузерах",
+        "who": "--преподаватель loftschool",
+        "path": "../../assets/img/review-2.png"
+      }]
+
     }
   ],
 
-  "skills": [{
-    "Frontend": ["HTML5", "CSS3", "JavaScript & JQuery"]
-  },
+  "skills": [
     {
-      "Backend": ["PHP", "MySQL", "Node.js & npm", "Mongo.db", "Mongo.db"]
+      "id": "frontend",
+      "name": "Frontend",
+      "items": [
+        {
+          "name": "HTML",
+          "value": 70
+        },
+        {
+          "name": "CSS",
+          "value": 70
+        },
+        {
+          "name": "Javascript & JQuery",
+          "value": 60
+        }
+      ]
     },
     {
-      "WorkFlow": ["Git", "Gulp", "Bower"]
+      "id": "backend",
+      "name": "Backend",
+      "items": [
+        {
+          "name": "PHP",
+          "value": 10
+        },
+        {
+          "name": "Node.js",
+          "value": 20
+        },
+        {
+          "name": "Mongo.db",
+          "value": 40
+        }
+      ]
+    },
+    {
+      "id": "workflow",
+      "name": "Workflow",
+      "items": [
+        {
+          "name": "Git",
+          "value": 90
+        },
+        {
+          "name": "Gulp",
+          "value": 80
+        },
+        {
+          "name": "Bower",
+          "value": 80
+        }
+      ]
     }
   ]
 }
