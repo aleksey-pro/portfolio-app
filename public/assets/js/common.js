@@ -160,7 +160,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = prepareSend;
 
-var _sendAjax = __webpack_require__(33);
+var _sendAjax = __webpack_require__(5);
 
 var _sendAjax2 = _interopRequireDefault(_sendAjax);
 
@@ -180,7 +180,7 @@ function prepareSend(url, form, data, cb) {
 
 /***/ }),
 
-/***/ 33:
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -205,58 +205,6 @@ exports.default = function (url, data, cb) {
   };
   xhr.send(JSON.stringify(data));
 };
-
-/***/ }),
-
-/***/ 4:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _prepareSend = __webpack_require__(0);
-
-var _prepareSend2 = _interopRequireDefault(_prepareSend);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var updateSkills = function updateSkills() {
-  var formSkills = document.querySelector('#skillForm');
-
-  var init = function init() {
-    _setUpListeners();
-  };
-
-  var _setUpListeners = function _setUpListeners() {
-    formSkills.addEventListener('submit', function (e) {
-      e.preventDefault();
-      _prepareSendSkills();
-    });
-  };
-
-  var _prepareSendSkills = function _prepareSendSkills() {
-    var data = {};
-    var itemsElement = document.querySelectorAll('.skill-section__title');
-
-    for (var i = 0; i < itemsElement.length; i++) {
-      var inputs = itemsElement[i].parentNode.querySelectorAll('input');
-      data[itemsElement[i].textContent] = [];
-
-      for (var input = 0; input < inputs.length; input++) {
-        var a = inputs[input].name;
-        var b = inputs[input].value;
-        data[itemsElement[i].textContent].push({ name: a, value: b });
-      }
-    }
-    (0, _prepareSend2.default)('/addskills', formSkills, data);
-  };
-
-  return {
-    init: init
-  };
-};
-
-module.exports = updateSkills;
 
 /***/ })
 

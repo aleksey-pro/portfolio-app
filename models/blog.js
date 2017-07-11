@@ -11,10 +11,6 @@ const mongoose = require('mongoose'),
       type: String,
       required: [true, 'Укажите содержимое статьи']
     },
-    url: {
-      type: String,
-      required: [true, 'Укажите ссылку на работу']
-    },
     date: {
       type: Date, 
       default: Date.now,

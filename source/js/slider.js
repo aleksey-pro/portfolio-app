@@ -1,9 +1,14 @@
 function SliderModule() {
   var index = 1;
   var items = $('.slider__list-down').find('.slider__item');
-
+  
+  var initUp = $('.slider__item-up:last-child');
+  var initDown = $('.slider__item-down:first-child');
+  
   
   var init = function () {
+    initUp.addClass('active');
+    initDown.addClass('active');
     _setUpListeners();
   };
   
@@ -24,18 +29,18 @@ function SliderModule() {
       if (index < 0) {
         index = items.length-1
       }
-  
+      
       var mainSrc = items.eq(index).find('img').attr('src');
       var mainAlt = items.eq(index).find('img').attr('alt');
-  
+      
       var activeSlide = $('.slider__active-image');
       activeSlide.attr('src', mainSrc);
       activeSlide.attr('alt', mainAlt);
-  
+      
       var activeTitle = $('.work-sample--active').find('.works__sample__title');
       var titleText = activeSlide.attr('alt');
       activeTitle.text(titleText);
-  
+      
       _showNextSlide($('.slider__list-down'), 'down');
       _showNextSlide($('.slider__list-up'), 'up');
       _changeLinks();
@@ -43,14 +48,14 @@ function SliderModule() {
     });
   };
   
-    var _changeLinks = function() {
-      var links = $('.works__links-btn'),
-        newLink = links.eq(index);
-      var mainLink = items.eq(index).find('img').attr('data-link');
-      newLink.attr('href', mainLink);
-      links.removeClass('works__links-btn-active');
-      newLink.addClass('works__links-btn-active');
-    };
+  var _changeLinks = function() {
+    var links = $('.works__links-btn'),
+      newLink = links.eq(index);
+    var mainLink = items.eq(index).find('img').attr('data-link');
+    newLink.attr('href', mainLink);
+    links.removeClass('works__links-btn-active');
+    newLink.addClass('works__links-btn-active');
+  };
   
   var _showNextSlide = function (container, direction) {
     var innerCounter = index;
@@ -70,14 +75,14 @@ function SliderModule() {
   
   function onSlide(newItem, oldItem, direction) {
     if(direction == 'down') {
-        newItem.css('top', '-225px');
-        oldItem.animate({'top': '225px'}, 300);
-        newItem.animate({'top': '0'}, 300, function(){
-          newItem.siblings().removeClass('active');
-          newItem.addClass('active');
-        });
-      }
-     else {
+      newItem.css('top', '-225px');
+      oldItem.animate({'top': '225px'}, 300);
+      newItem.animate({'top': '0'}, 300, function(){
+        newItem.siblings().removeClass('active');
+        newItem.addClass('active');
+      });
+    }
+    else {
       newItem.css('top', '225px');
       oldItem.animate({'top': '-225px'}, 300);
       newItem.animate({'top': '0'}, 300, function(){
@@ -86,11 +91,10 @@ function SliderModule() {
       });
     }
   }
-
+  
   return {
     init:init
   };
 }
 
 module.exports = SliderModule;
-

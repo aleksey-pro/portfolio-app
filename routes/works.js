@@ -3,38 +3,25 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const config = require('../config.json');
 const mongoose = require('mongoose');
-const content = require('../views/data/content.json');
+require('../models/pic');
+require('../models/reviews');
 
+//http://javabeat.net/mongoose-nodejs-mongodb/
+  
 router.get('/', function (req, res) {
   let obj = {
-    title: 'Мои работы',
-    reviews: content.reviews
+    title: 'Мои работы'
   };
   Object.assign(obj, req.app.locals.settings);
   
-  const Model = mongoose.model('pic');
-  //получаем список работ из базы
-  Model
-    .find()
-    .then(items => {
-      // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
-      // записей в блоге
-      Object.assign(obj, {items: items});
-      res.render('pages/works', obj);
-    });
   
-  
-  const Model2 = mongoose.model('reviews');
-  //получаем список ревью из базы
-  Model2
-    .find()
-    .then(reviews => {
-      // обрабатываем шаблон и отправляем его в браузер передаем в шаблон список
-      // записей в блоге
-      Object.assign(obj, {ReviewList: reviews});
+  Promise.all([mongoose.model('pic').find(), mongoose.model('reviews').find()])
+    .then(result => {
+      Object.assign(obj, {pic: result[0], reviews: result[1]});
       res.render('pages/works', obj);
     });
 });
+
 
 router.post('/', function (req, res) {
   //требуем наличия имени, обратной почты и текста

@@ -1,3 +1,5 @@
+import prepareSend from './prepareSend';
+
 const rotateModule = require('./rotate');
 const parallaxModule = require('./parallax');
 const initMap = require('./map');
@@ -11,7 +13,6 @@ const water = require('../WebGL/index-water');
 const arrow = require('./downArrow');
 const form = require('./formSubmit');
 const auth = require('./authForm');
-const addSkill = require('./updateSkills');
 
 const loadPoly = new loadPolyfills();
 const flipLogin = new rotateModule();
@@ -26,7 +27,6 @@ const WebGL = new water();
 const arrowScroll = new arrow();
 const formProcess = new form();
 const authProcess = new auth();
-const updateSkills = new addSkill();
 
 loadPoly.init();
 slider.init();
@@ -36,7 +36,7 @@ formProcess.init();
 authProcess.init();
 preloader.init();
 flipLogin.init();
-updateSkills.init();
+
 
 if(document.body.classList.contains('hasMenu')) {
   blogMenu.init();

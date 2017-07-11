@@ -2,25 +2,25 @@ import prepareSend from './prepareSend';
 
 function sendForm() {
   const formMail = document.querySelector('#mail');
-  
+  const $formMail = $('#mail');
+  const fields = $('.form-fields__field');
   
   function _setUpListeners() {
     if (formMail) {
-      formMail.addEventListener('submit', _submitEvent);
-      formMail.addEventListener('keydown', '.has-error', _removeError);
+      formMail.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if ( event.which == 13 ) {
+          event.preventDefault();
+        }
+        _validateForm();
+        if (!_validateForm(formMail)) return false;
+        prepareSendMail();
+      });
       formMail.addEventListener('reset', _clearForm);
     }
   }
-  
-  function _submitEvent() {
-    _validateForm();
-    if (!_validateForm(formMail)) return false;
-    // prepareSendMail();
-  }
-  
     
-  function prepareSendMail(e) {
-    e.preventDefault();
+  function prepareSendMail() {
     let data = {
       name: formMail.name.value.trim(),
       email: formMail.email.value.trim(),
@@ -29,18 +29,18 @@ function sendForm() {
     prepareSend('/contact', formMail, data);
   }
   
-  function _validateForm(formMail) {
+  function _validateForm() {
+    var valid = true;
     
-    var elements = formMail.find('input, textarea').not('input[type="file"], input[type="hidden"]'),
-      valid = true;
-    
-    $.each(elements, function(index, val) {
-      let element = $(val),
-        vals = element.val();
+    $.each(fields, function(index, val) {
+      let field = $(val),
+        vals = field.val();
       
       if(vals.length === 0){
-        element.addClass('has-error');
+        field.addClass('has-error');
+        $formMail.find('.status').text('Заполните все поля!');
         valid = false;
+        field.on('keydown', _removeError);
       }
     });
     
@@ -49,12 +49,12 @@ function sendForm() {
   
   function _removeError() { // Убирает красную обводку у элементов форм
     $(this).removeClass('has-error');
+    $formMail.find('.status').text('');
   }
   
   function _clearForm() {
-    var formMail = $(this);
-    formMail.find('.has-error').removeClass('has-error');
-    formMail.find('.error-mes, success-mes').text('').hide();
+    $formMail.find('.has-error').removeClass('has-error');
+    $formMail.find('.status').text('');
   }
   
   return {

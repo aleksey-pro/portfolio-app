@@ -59,24 +59,23 @@ html(lang="ru-RU")
                                         span Посмотреть сайт
                     .slider__right
                         .slider__active
-                            each index in items
+                            each index in pic
                                 img(src=`${index.picture}` alt=`${index.name}`).slider__active-image
                     .slider__btns
                         a(href='#').slider__btn.btn-down
                             svg.slider__btn-icon
                                 use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_down')
                             ul.slider__list.slider__list-up
-                                each index in items
-                                    li.slider__item.active
+                                each index in pic
+                                    li.slider__item.slider__item-up
                                         img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
                         a(href='#').slider__btn.btn-up
                             svg.slider__btn-icon
                                 use(xlink:href='assets/img/sprite.svg#components--slider--portf_arrow_up')
                             ul.slider__list.slider__list-down
-                                ul.slider__list.slider__list-up
-                                    each index in items
-                                        li.slider__item.active
-                                            img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
+                                each index in pic
+                                    li.slider__item.slider__item-down
+                                        img.slider__item-pic(src=`${index.picture}` alt=`${index.name}` data-link=`${index.url}`)
             section.reviews
                 .reviews__blur-back
                     img(class='reviews__img blur-background' src='../../assets/img/aboout_bg_1200.png' alt='works')
@@ -88,22 +87,22 @@ html(lang="ru-RU")
                     | говорят
                     svg.title__svg-bg.reviews__title-svg
                         use(xlink:href='assets/img/sprite.svg#pages--works--about_title')
-                mixin reviews-card (review)
-                    .reiews-list__item.review
-                        .review__image
-                            img(class='review__pic' src=review.path)
-                        p= review.text
-                        .review__name= review.name
-                        .review__prof= review.who
                 .reviews-list
                     .reviews-list__container
-                        each review in reviewList
-                            +reviews-card(review)
+                        each reviewNote in reviews
+                          each review in reviewNote.reviews
+                            .reiews-list__item.review
+                                .review__image
+                                    img(class='review__pic' src=review.path)
+                                p= review.text
+                                .review__name= review.name
+                                .review__prof= review.who
                 .reviews__callback-form
                     include ../common/contact-form
                 a.arrow-up
                     svg.down-arrow__icon.down-arrow__icon--reversed
                         use(xlink:href='assets/img/sprite.svg#common--arrow_down')
             //Подвал
+
             include  ../common/footer
             include  ../common/preloader

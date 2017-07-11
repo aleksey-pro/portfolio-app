@@ -1,4 +1,4 @@
-#Сборка Loftschool 
+# Сборка сайта-потфолио Node.js - Mongo.db - Express REST API
 
 Stack:
  - Gulp 4.0
@@ -12,5 +12,5 @@ Getting started:
 6. run "gulp" command to start
 
 ### Примечание
-- добавлен модульный сборщик browserify
+- сборщик browserify изменен на webpack
 - добавлен транспилер babel

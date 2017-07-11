@@ -34,10 +34,8 @@ html(lang="ru-RU")
                                             .admin-skill__value
                                                 input.admin-skill__inp(type='text' name=`${lineSkill.name}` value=`${lineSkill.value}`)
                                             span.admin-skill__perc %
-                input(type="submit" value="Сохранить" name="").save-btn.admin-btn
-                input(type="reset" value="Очистить" name="").save-btn.admin-btn
-
-            form.admin-blog#blog( method="POST")
+                input(type="submit" id="updateBtn" value="Сохранить" name="").save-btn.admin-btn
+            form.admin-blog#blog(method='POST')
                 .admin-blog__title Страница "Блог"
                 .status
                 .admin-add

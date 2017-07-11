@@ -9,23 +9,23 @@ jQueryTabs.init();
 
 const formUpload = document.querySelector('#upload');
 const formBlog = document.querySelector('#blog');
-const formSkill = document.querySelector('#skillForm');
+const formSkills = document.querySelector('#skillForm');
 
-if (formUpload && formBlog && formSkill) {
+if (formUpload && formBlog && formSkills) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  // formSkill.addEventListener('submit', prepareSendSkill);
-  formSkill.addEventListener('submit', require('./updateSkills'));
+  formSkills.addEventListener('submit', _prepareSendSkills);
+  
 }
 
-function prepareSendSkill(e) {
-  e.preventDefault();
-  let data = {
-    num: formSkill.num.value,
-    num2: formSkill.num2.value
-  };
-  prepareSend('/admin/addskill', formSkill, data);
-}
+// function prepareSendSkill(e) {
+//   e.preventDefault();
+//   let data = {
+//     num: formSkill.num.value,
+//     num2: formSkill.num2.value
+//   };
+//   prepareSend('/admin/addskill', formSkill, data);
+// }
 
 function prepareSendFile(e) {
   e.preventDefault();
@@ -60,4 +60,24 @@ function prepareSendPost(e) {
     text: formBlog.text.value
   };
   prepareSend('/admin/addpost', formBlog, data);
+}
+
+function _prepareSendSkills(e) {
+  e.preventDefault();
+  
+  var data = {};
+  var itemsElement = document.querySelectorAll('.admin-skill__title');
+  
+  for (var i=0; i<itemsElement.length; i++) {
+    var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+    data[itemsElement[i].textContent] = [];
+    
+    for (var input=0; input<inputs.length; input++) {
+      var a = inputs[input].name;
+      var b = inputs[input].value;
+      data[itemsElement[i].textContent].push({ name: a, value: b });
+    }
+    console.log(data);
+  }
+  prepareSend('/admin/addskills', formSkills, data);
 }

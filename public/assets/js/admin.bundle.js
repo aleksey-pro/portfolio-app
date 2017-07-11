@@ -1,12 +1,12 @@
 webpackJsonp([1],{
 
-/***/ 35:
+/***/ 34:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _upload = __webpack_require__(36);
+var _upload = __webpack_require__(35);
 
 var _upload2 = _interopRequireDefault(_upload);
 
@@ -16,29 +16,28 @@ var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var jTabsModule = __webpack_require__(37);
+var jTabsModule = __webpack_require__(36);
 var jQueryTabs = new jTabsModule();
 jQueryTabs.init();
 
 var formUpload = document.querySelector('#upload');
 var formBlog = document.querySelector('#blog');
-var formSkill = document.querySelector('#skillForm');
+var formSkills = document.querySelector('#skillForm');
 
-if (formUpload && formBlog && formSkill) {
+if (formUpload && formBlog && formSkills) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  // formSkill.addEventListener('submit', prepareSendSkill);
-  formSkill.addEventListener('submit', __webpack_require__(4));
+  formSkills.addEventListener('submit', _prepareSendSkills);
 }
 
-function prepareSendSkill(e) {
-  e.preventDefault();
-  var data = {
-    num: formSkill.num.value,
-    num2: formSkill.num2.value
-  };
-  (0, _prepareSend2.default)('/admin/addskill', formSkill, data);
-}
+// function prepareSendSkill(e) {
+//   e.preventDefault();
+//   let data = {
+//     num: formSkill.num.value,
+//     num2: formSkill.num2.value
+//   };
+//   prepareSend('/admin/addskill', formSkill, data);
+// }
 
 function prepareSendFile(e) {
   e.preventDefault();
@@ -69,9 +68,29 @@ function prepareSendPost(e) {
   (0, _prepareSend2.default)('/admin/addpost', formBlog, data);
 }
 
+function _prepareSendSkills(e) {
+  e.preventDefault();
+
+  var data = {};
+  var itemsElement = document.querySelectorAll('.admin-skill__title');
+
+  for (var i = 0; i < itemsElement.length; i++) {
+    var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+    data[itemsElement[i].textContent] = [];
+
+    for (var input = 0; input < inputs.length; input++) {
+      var a = inputs[input].name;
+      var b = inputs[input].value;
+      data[itemsElement[i].textContent].push({ name: a, value: b });
+    }
+    console.log(data);
+  }
+  (0, _prepareSend2.default)('/admin/addskills', formSkills, data);
+}
+
 /***/ }),
 
-/***/ 36:
+/***/ 35:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -95,7 +114,7 @@ exports.default = function (url, data, cb) {
 
 /***/ }),
 
-/***/ 37:
+/***/ 36:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -148,5 +167,5 @@ module.exports = jTabsModule;
 
 /***/ })
 
-},[35]);
+},[34]);
 //# sourceMappingURL=admin.bundle.js.map

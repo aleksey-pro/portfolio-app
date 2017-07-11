@@ -17,23 +17,22 @@ jQueryTabs.init();
 
 var formUpload = document.querySelector('#upload');
 var formBlog = document.querySelector('#blog');
-var formSkill = document.querySelector('#skillForm');
+var formSkills = document.querySelector('#skillForm');
 
-if (formUpload && formBlog && formSkill) {
+if (formUpload && formBlog && formSkills) {
   formUpload.addEventListener('submit', prepareSendFile);
   formBlog.addEventListener('submit', prepareSendPost);
-  // formSkill.addEventListener('submit', prepareSendSkill);
-  formSkill.addEventListener('submit', require('./updateSkills'));
+  formSkills.addEventListener('submit', _prepareSendSkills);
 }
 
-function prepareSendSkill(e) {
-  e.preventDefault();
-  var data = {
-    num: formSkill.num.value,
-    num2: formSkill.num2.value
-  };
-  (0, _prepareSend2.default)('/admin/addskill', formSkill, data);
-}
+// function prepareSendSkill(e) {
+//   e.preventDefault();
+//   let data = {
+//     num: formSkill.num.value,
+//     num2: formSkill.num2.value
+//   };
+//   prepareSend('/admin/addskill', formSkill, data);
+// }
 
 function prepareSendFile(e) {
   e.preventDefault();
@@ -64,7 +63,27 @@ function prepareSendPost(e) {
   (0, _prepareSend2.default)('/admin/addpost', formBlog, data);
 }
 
-},{"./jTabs":2,"./prepareSend":3,"./updateSkills":5,"./upload":6}],2:[function(require,module,exports){
+function _prepareSendSkills(e) {
+  e.preventDefault();
+
+  var data = {};
+  var itemsElement = document.querySelectorAll('.admin-skill__title');
+
+  for (var i = 0; i < itemsElement.length; i++) {
+    var inputs = itemsElement[i].parentNode.querySelectorAll('input');
+    data[itemsElement[i].textContent] = [];
+
+    for (var input = 0; input < inputs.length; input++) {
+      var a = inputs[input].name;
+      var b = inputs[input].value;
+      data[itemsElement[i].textContent].push({ name: a, value: b });
+    }
+    console.log(data);
+  }
+  (0, _prepareSend2.default)('/admin/addskills', formSkills, data);
+}
+
+},{"./jTabs":2,"./prepareSend":3,"./upload":5}],2:[function(require,module,exports){
 'use strict';
 
 function jTabsModule() {
@@ -162,53 +181,6 @@ exports.default = function (url, data, cb) {
 };
 
 },{}],5:[function(require,module,exports){
-'use strict';
-
-var _prepareSend = require('./prepareSend');
-
-var _prepareSend2 = _interopRequireDefault(_prepareSend);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var updateSkills = function updateSkills() {
-  var formSkills = document.querySelector('#skillForm');
-
-  var init = function init() {
-    _setUpListeners();
-  };
-
-  var _setUpListeners = function _setUpListeners() {
-    formSkills.addEventListener('submit', function (e) {
-      e.preventDefault();
-      _prepareSendSkills();
-    });
-  };
-
-  var _prepareSendSkills = function _prepareSendSkills() {
-    var data = {};
-    var itemsElement = document.querySelectorAll('.skill-section__title');
-
-    for (var i = 0; i < itemsElement.length; i++) {
-      var inputs = itemsElement[i].parentNode.querySelectorAll('input');
-      data[itemsElement[i].textContent] = [];
-
-      for (var input = 0; input < inputs.length; input++) {
-        var a = inputs[input].name;
-        var b = inputs[input].value;
-        data[itemsElement[i].textContent].push({ name: a, value: b });
-      }
-    }
-    (0, _prepareSend2.default)('/addskills', formSkills, data);
-  };
-
-  return {
-    init: init
-  };
-};
-
-module.exports = updateSkills;
-
-},{"./prepareSend":3}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

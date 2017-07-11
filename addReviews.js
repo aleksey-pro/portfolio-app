@@ -26,7 +26,7 @@ let Model = mongoose.model('reviews');
 Model.remove({}).then(() => {
   content.reviews.forEach( (item, idx, arr) => {
     // console.log(item.ReviewList);
-    let recordDb = new Model({ ReviewList: item.ReviewList});
+    let recordDb = new Model({ reviews: item.result});
     recordDb.save().then(
       //обрабатываем и отправляем ответ в браузер
       i => {

@@ -17333,12 +17333,17 @@ function createCanvas(width, height) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(25)(module)))
 
 /***/ }),
-/* 4 */,
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+var _prepareSend = __webpack_require__(0);
+
+var _prepareSend2 = _interopRequireDefault(_prepareSend);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var rotateModule = __webpack_require__(6);
 var parallaxModule = __webpack_require__(7);
@@ -17352,8 +17357,7 @@ var blog = __webpack_require__(18);
 var water = __webpack_require__(19);
 var arrow = __webpack_require__(31);
 var form = __webpack_require__(32);
-var auth = __webpack_require__(34);
-var addSkill = __webpack_require__(4);
+var auth = __webpack_require__(33);
 
 var loadPoly = new loadPolyfills();
 var flipLogin = new rotateModule();
@@ -17368,7 +17372,6 @@ var WebGL = new water();
 var arrowScroll = new arrow();
 var formProcess = new form();
 var authProcess = new auth();
-var updateSkills = new addSkill();
 
 loadPoly.init();
 slider.init();
@@ -17378,7 +17381,6 @@ formProcess.init();
 authProcess.init();
 preloader.init();
 flipLogin.init();
-updateSkills.init();
 
 if (document.body.classList.contains('hasMenu')) {
   blogMenu.init();
@@ -17407,6 +17409,7 @@ if (document.body.classList.contains('hasMap')) {
 }
 
 /***/ }),
+/* 5 */,
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19034,7 +19037,12 @@ function SliderModule() {
   var index = 1;
   var items = $('.slider__list-down').find('.slider__item');
 
+  var initUp = $('.slider__item-up:last-child');
+  var initDown = $('.slider__item-down:first-child');
+
   var init = function init() {
+    initUp.addClass('active');
+    initDown.addClass('active');
     _setUpListeners();
   };
 
@@ -27940,23 +27948,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function sendForm() {
   var formMail = document.querySelector('#mail');
+  var $formMail = $('#mail');
+  var fields = $('.form-fields__field');
 
   function _setUpListeners() {
     if (formMail) {
-      formMail.addEventListener('submit', _submitEvent);
-      formMail.addEventListener('keydown', '.has-error', _removeError);
+      formMail.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (event.which == 13) {
+          event.preventDefault();
+        }
+        _validateForm();
+        if (!_validateForm(formMail)) return false;
+        prepareSendMail();
+      });
       formMail.addEventListener('reset', _clearForm);
     }
   }
 
-  function _submitEvent() {
-    _validateForm();
-    if (!_validateForm(formMail)) return false;
-    // prepareSendMail();
-  }
-
-  function prepareSendMail(e) {
-    e.preventDefault();
+  function prepareSendMail() {
     var data = {
       name: formMail.name.value.trim(),
       email: formMail.email.value.trim(),
@@ -27965,18 +27975,18 @@ function sendForm() {
     (0, _prepareSend2.default)('/contact', formMail, data);
   }
 
-  function _validateForm(formMail) {
+  function _validateForm() {
+    var valid = true;
 
-    var elements = formMail.find('input, textarea').not('input[type="file"], input[type="hidden"]'),
-        valid = true;
-
-    $.each(elements, function (index, val) {
-      var element = $(val),
-          vals = element.val();
+    $.each(fields, function (index, val) {
+      var field = $(val),
+          vals = field.val();
 
       if (vals.length === 0) {
-        element.addClass('has-error');
+        field.addClass('has-error');
+        $formMail.find('.status').text('Заполните все поля!');
         valid = false;
+        field.on('keydown', _removeError);
       }
     });
 
@@ -27986,12 +27996,12 @@ function sendForm() {
   function _removeError() {
     // Убирает красную обводку у элементов форм
     $(this).removeClass('has-error');
+    $formMail.find('.status').text('');
   }
 
   function _clearForm() {
-    var formMail = $(this);
-    formMail.find('.has-error').removeClass('has-error');
-    formMail.find('.error-mes, success-mes').text('').hide();
+    $formMail.find('.has-error').removeClass('has-error');
+    $formMail.find('.status').text('');
   }
 
   return {
@@ -28002,8 +28012,7 @@ function sendForm() {
 module.exports = sendForm;
 
 /***/ }),
-/* 33 */,
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28084,5 +28093,5 @@ function formModule() {
 module.exports = formModule;
 
 /***/ })
-],[5]);
+],[4]);
 //# sourceMappingURL=app.bundle.js.map
