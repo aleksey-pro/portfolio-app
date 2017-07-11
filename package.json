@@ -4,7 +4,7 @@
   "author": "a.kalin & krabaton",
   "license": "ISC",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
