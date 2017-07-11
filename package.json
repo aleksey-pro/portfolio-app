@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "author": "a.kalin & krabaton",
   "license": "ISC",
-  "scripts": {
-    "postinstall": "bower install"
-  },
+  "scripts": {},
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
