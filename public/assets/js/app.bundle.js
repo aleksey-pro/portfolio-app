@@ -1,6 +1,7 @@
 webpackJsonp([0],[
 /* 0 */,
-/* 1 */
+/* 1 */,
+/* 2 */
 /***/ (function(module, exports) {
 
 var g;
@@ -27,7 +28,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -38,7 +39,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createCanvas = createCanvas;
 
-var _curry = __webpack_require__(20);
+var _curry = __webpack_require__(21);
 
 var _curry2 = _interopRequireDefault(_curry);
 
@@ -241,7 +242,7 @@ function createCanvas(width, height) {
 }
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -17330,34 +17331,34 @@ function createCanvas(width, height) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(25)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2), __webpack_require__(26)(module)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _prepareSend = __webpack_require__(0);
+var _prepareSend = __webpack_require__(1);
 
 var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var rotateModule = __webpack_require__(6);
-var parallaxModule = __webpack_require__(7);
-var initMap = __webpack_require__(8);
-var loadPolyfills = __webpack_require__(9);
-var blur = __webpack_require__(14);
-var preload = __webpack_require__(15);
-var slide = __webpack_require__(16);
-var works = __webpack_require__(17);
-var blog = __webpack_require__(18);
-var water = __webpack_require__(19);
-var arrow = __webpack_require__(31);
-var form = __webpack_require__(32);
-var auth = __webpack_require__(33);
+var rotateModule = __webpack_require__(7);
+var parallaxModule = __webpack_require__(8);
+var initMap = __webpack_require__(9);
+var loadPolyfills = __webpack_require__(10);
+var blur = __webpack_require__(15);
+var preload = __webpack_require__(16);
+var slide = __webpack_require__(17);
+var works = __webpack_require__(18);
+var blog = __webpack_require__(19);
+var water = __webpack_require__(20);
+var arrow = __webpack_require__(32);
+var form = __webpack_require__(33);
+var auth = __webpack_require__(34);
 
 var loadPoly = new loadPolyfills();
 var flipLogin = new rotateModule();
@@ -17409,8 +17410,8 @@ if (document.body.classList.contains('hasMap')) {
 }
 
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17451,7 +17452,7 @@ function rotateModule() {
 module.exports = rotateModule;
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17485,7 +17486,7 @@ function parallax() {
 module.exports = parallax;
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17586,14 +17587,14 @@ function initMap() {
 module.exports = initMap;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var svg = __webpack_require__(10);
-__webpack_require__(11).polyfill();
+var svg = __webpack_require__(11);
+__webpack_require__(12).polyfill();
 
 function loadSVG() {
   function loadSVGs() {
@@ -17608,7 +17609,7 @@ function loadSVG() {
 module.exports = loadSVG;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, factory) {
@@ -17721,7 +17722,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
 });
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process, global) {var require;var __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -17854,7 +17855,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
     function lib$es6$promise$asap$$attemptVertx() {
       try {
         var r = require;
-        var vertx = __webpack_require__(13);
+        var vertx = __webpack_require__(14);
         lib$es6$promise$asap$$vertxNext = vertx.runOnLoop || vertx.runOnContext;
         return lib$es6$promise$asap$$useVertxTimer();
       } catch(e) {
@@ -18685,10 +18686,10 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!function(root, 
 }).call(this);
 
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(12), __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13), __webpack_require__(2)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -18878,17 +18879,17 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 function blurModule() {
   var blur = function blur() {
@@ -18911,13 +18912,14 @@ function blurModule() {
 }
 
 module.exports = blurModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 var preloaderModule = function preloaderModule() {
 
@@ -18980,13 +18982,14 @@ var preloaderModule = function preloaderModule() {
 };
 
 module.exports = preloaderModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 function menuHandler() {
 
@@ -19025,13 +19028,14 @@ function menuHandler() {
 }
 
 module.exports = menuHandler;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 function SliderModule() {
   var index = 1;
@@ -19129,13 +19133,14 @@ function SliderModule() {
 }
 
 module.exports = SliderModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 function blogModule() {
 
@@ -19218,25 +19223,26 @@ function blogModule() {
 }
 
 module.exports = blogModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _canvas = __webpack_require__(2);
+var _canvas = __webpack_require__(3);
 
-var _haze = __webpack_require__(21);
+var _haze = __webpack_require__(22);
 
 var _haze2 = _interopRequireDefault(_haze);
 
-var _hazeWater = __webpack_require__(28);
+var _hazeWater = __webpack_require__(29);
 
 var _hazeWater2 = _interopRequireDefault(_hazeWater);
 
-var _gsap = __webpack_require__(29);
+var _gsap = __webpack_require__(30);
 
 var _gsap2 = _interopRequireDefault(_gsap);
 
@@ -19369,7 +19375,7 @@ function waterModule() {
 module.exports = waterModule;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports) {
 
 var slice = Array.prototype.slice;
@@ -19472,7 +19478,7 @@ module.exports = curry;
 
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19482,23 +19488,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _glObj = __webpack_require__(22);
+var _glObj = __webpack_require__(23);
 
 var _glObj2 = _interopRequireDefault(_glObj);
 
-var _simple = __webpack_require__(24);
+var _simple = __webpack_require__(25);
 
 var _simple2 = _interopRequireDefault(_simple);
 
-var _canvas = __webpack_require__(2);
+var _canvas = __webpack_require__(3);
 
-var _lodash = __webpack_require__(3);
+var _lodash = __webpack_require__(4);
 
-var _fill = __webpack_require__(26);
+var _fill = __webpack_require__(27);
 
 var _fill2 = _interopRequireDefault(_fill);
 
-var _eventDispatcher = __webpack_require__(27);
+var _eventDispatcher = __webpack_require__(28);
 
 var _eventDispatcher2 = _interopRequireDefault(_eventDispatcher);
 
@@ -19696,7 +19702,7 @@ Haze.prototype = (0, _lodash.assign)({
 exports.default = Haze;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19706,7 +19712,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _webgl = __webpack_require__(23);
+var _webgl = __webpack_require__(24);
 
 var WebGL = _interopRequireWildcard(_webgl);
 
@@ -19762,7 +19768,7 @@ GL.prototype = {
 exports.default = GL;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19897,13 +19903,13 @@ function error(msg) {
 }
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = "precision mediump float;\r\n\r\nattribute vec2 a_position;\r\nvarying vec2 v_position;\r\n\r\nvoid main() {\r\n  v_position=(a_position+1.0)*0.5;\r\n  v_position.y=1.0-v_position.y;\r\n  gl_Position = vec4(a_position,0.0,1.0);\r\n}\r\n"
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -19931,7 +19937,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19968,7 +19974,7 @@ exports.default = function (imageWidth, imageHeight, containerWidth, containerHe
 };
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19978,7 +19984,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _lodash = __webpack_require__(3);
+var _lodash = __webpack_require__(4);
 
 exports.default = function () {
   return {
@@ -20015,13 +20021,13 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = "precision mediump float;\r\n\r\n/*\r\nMESSY CODE AHEAD\r\n(sorry, experimenting)\r\n*/\r\n\r\nuniform float u_time;\r\nvarying vec2 v_position;\r\nuniform sampler2D u_image;\r\nuniform sampler2D u_maps;\r\nuniform vec2 u_mouse;\r\nuniform float u_dpi;\r\nuniform vec2 u_resolution;\r\n\r\nvec2 pos(){\r\n  return vec2(0.0,0.0);\r\n}\r\n\r\nvec4 blend(vec4 bg,vec4 fg){\r\n  vec3 bgm=bg.rgb*bg.a;\r\n  vec3 fgm=fg.rgb*fg.a;\r\n  float ia=1.0-fg.a;\r\n  float a=(fg.a + bg.a * ia);\r\n  vec3 rgb;\r\n  if(a!=0.0){\r\n    rgb=(fgm + bgm * ia) / a;\r\n  }else{\r\n    rgb=vec3(0.0,0.0,0.0);\r\n  }\r\n  return vec4(rgb,a);\r\n}\r\nvec2 pixel(){\r\n  return vec2(1.0*u_dpi)/u_resolution;\r\n}\r\nfloat wave(float x,float freq, float speed){\r\n  return sin(x*freq+((u_time*(3.1415/2.0))*speed));\r\n}\r\nvec2 waves(vec2 pos){\r\n  vec4 maps=texture2D(u_maps,pos);\r\n  float mask=maps.r;\r\n  float y=maps.g;\r\n  float y2=pow(y,2.0);\r\n\r\n  vec2 intensity=vec2(\r\n    0.5-(y2*0.5),\r\n    0.2+(y2*1.8)\r\n  )*pixel();\r\n\r\n  vec2 waves=vec2(\r\n    wave(y,400.0-(y2*200.0),-0.03),\r\n     wave(y,400.0-(y2*400.0*0.05),-0.045)\r\n    +wave(y,900.0-(y2*900.0*0.05),-0.05)\r\n    +wave(pos.x,20.0+(y2*20.0*1.5),-0.01)\r\n  );\r\n  return pos+(waves*intensity*mask);\r\n}\r\nvec2 depth(vec2 pos){\r\n  vec2 intensity=vec2(0.01,0.01);\r\n  float d=0.05-pow(texture2D(u_maps,pos).b,1.0);\r\n  return pos+(intensity*u_mouse*d);\r\n}\r\nvoid main(){\r\n  vec2 pos=v_position.xy;\r\n\r\n  vec2 turbulence=depth(waves(pos));\r\n  vec2 noTurbulence=depth(pos);\r\n  vec4 c=texture2D(u_image,turbulence);\r\n\r\n\r\n  gl_FragColor=vec4(c.rgb,1.0);\r\n\r\n}\r\n"
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -26067,7 +26073,7 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 						if (global) {
 							_globals[n] = _exports[n] = cl; //provides a way to avoid global namespace pollution. By default, the main classes like TweenLite, Power1, Strong, etc. are added to window unless a GreenSockGlobals is defined. So if you want to have things added to a custom object instead, just do something like window.GreenSockGlobals = {} before loading any GreenSock files. You can even set up an alias like window.GreenSockGlobals = windows.gs = {} so that you can access everything like gs.TweenLite. Also remember that ALL classes are added to the window.com.greensock object (in their respective packages, like com.greensock.easing.Power1, com.greensock.TweenLite, etc.)
 							hasModule = (typeof(module) !== "undefined" && module.exports);
-							if (!hasModule && "function" === "function" && __webpack_require__(30)){ //AMD
+							if (!hasModule && "function" === "function" && __webpack_require__(31)){ //AMD
 								!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() { return cl; }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 							} else if (hasModule){ //node
@@ -27882,10 +27888,10 @@ if (_gsScope._gsDefine) { _gsScope._gsQueue.pop()(); } //necessary in case Tween
 		_tickerActive = false; //ensures that the first official animation forces a ticker.tick() to update the time when it is instantiated
 
 })((typeof(module) !== "undefined" && module.exports && typeof(global) !== "undefined") ? global : this || window, "TweenMax");
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 /* WEBPACK VAR INJECTION */(function(__webpack_amd_options__) {/* globals __webpack_amd_options__ */
@@ -27894,11 +27900,11 @@ module.exports = __webpack_amd_options__;
 /* WEBPACK VAR INJECTION */}.call(exports, {}))
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 function ArrowModule() {
 
@@ -27932,15 +27938,16 @@ function ArrowModule() {
 }
 
 module.exports = ArrowModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 32 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
-
-var _prepareSend = __webpack_require__(0);
+var _prepareSend = __webpack_require__(1);
 
 var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
@@ -28010,15 +28017,16 @@ function sendForm() {
 }
 
 module.exports = sendForm;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function($) {
 
-
-var _prepareSend = __webpack_require__(0);
+var _prepareSend = __webpack_require__(1);
 
 var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
@@ -28091,7 +28099,8 @@ function formModule() {
 } //formModule
 
 module.exports = formModule;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
-],[4]);
+],[5]);
 //# sourceMappingURL=app.bundle.js.map

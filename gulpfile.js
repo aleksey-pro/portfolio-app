@@ -34,7 +34,7 @@ $.gulp.task('default', $.gulp.series(
   'clean',
   $.gulp.parallel(
     'sass',
-    'js:foundation',
+    // 'js:foundation',
     // 'js:process',
     'copy:image',
     'copy:font',

@@ -18,12 +18,11 @@ module.exports = {
       name: 'common',//склеивает только модули что нужны везде, после поля app common: '...,....'
       filename: 'assets/js/common.js',
       minChunks: 2
+    }),
+    new webpack.ProvidePlugin({
+      $: 'jQuery',
+      jQuery : 'jQuery'
     })
-    // ,
-    // new webpack.ProvidePlugin({
-    //   $: 'jQuery',
-    //   jQuery : 'jQuery'
-    // })
     //,
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
