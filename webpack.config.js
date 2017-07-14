@@ -1,5 +1,6 @@
 // const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   context: __dirname + '/source',
@@ -9,7 +10,7 @@ module.exports = {
     admin: './js/admin.js'
   },
   output: {
-    //publicPath: '',
+    publicPath: '/',
     filename: 'assets/js/[name].bundle.js',
     path: __dirname + '/public'
   },
@@ -22,7 +23,8 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jQuery',
       jQuery : 'jQuery'
-    })
+    }),
+    new ExtractTextPlugin({filename: 'assets/css/app.css', allChunks: true})
     //,
     // new webpack.optimize.UglifyJsPlugin({
     //   compress: {
@@ -45,9 +47,29 @@ module.exports = {
       {
         test: /\.(frag|vert)$/,
         loader: 'webpack-glsl-loader'
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract(['style-loader', 'css-loader'])
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader','resolve-url-loader', 'sass-loader?sourceMap']
+        })
+      },
+      {
+        test: /\.(ttf|woff|eot|woff2)$/,
+        loader: 'file-loader?name=[name].[ext]&publicPath=assets/fonts/&outputPath=assets/fonts/'
+      },
+      {
+        test: /\.(gif|svg|png|jpg)$/,
+        loader: 'file-loader?name=[name].[ext]&publicPath=assets/img/&outputPath=assets/img/'
       }
     ]
   }
 };
+
 
 //https://habrahabr.ru/post/309306/

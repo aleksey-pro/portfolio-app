@@ -27,13 +27,21 @@ body {
 //-------------------------------- Styles for components and common blocks----------------------------------------//
 //------------//
 
-@import 'common/**/*';
+//@import 'common/**/*';
 
 //------------//
 //-------------------------------- Styles for pages--------------------------------------------------------------//
 //------------//
 
-@import 'pages/*';
+//@import 'pages/*';
+
+//------------//
+//-------------------------------- Styles for tinyMCE--------------------------------------------------------------//
+//------------//
+
+@import '~tinymce/skins/lightgray/skin.min.css';
+@import '~tinymce/skins/lightgray/content.min.css';
+@import '~tinymce/skins/lightgray/content.inline.min.css';
 
 //------------//
 

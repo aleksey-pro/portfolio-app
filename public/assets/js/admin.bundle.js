@@ -1,12 +1,12 @@
 webpackJsonp([1],{
 
-/***/ 35:
+/***/ 40:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _upload = __webpack_require__(36);
+var _upload = __webpack_require__(41);
 
 var _upload2 = _interopRequireDefault(_upload);
 
@@ -16,7 +16,7 @@ var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var jTabsModule = __webpack_require__(37);
+var jTabsModule = __webpack_require__(42);
 var jQueryTabs = new jTabsModule();
 jQueryTabs.init();
 
@@ -90,7 +90,7 @@ function _prepareSendSkills(e) {
 
 /***/ }),
 
-/***/ 36:
+/***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -114,7 +114,7 @@ exports.default = function (url, data, cb) {
 
 /***/ }),
 
-/***/ 37:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -168,5 +168,5 @@ module.exports = jTabsModule;
 
 /***/ })
 
-},[35]);
+},[40]);
 //# sourceMappingURL=admin.bundle.js.map

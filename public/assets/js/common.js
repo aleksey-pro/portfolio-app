@@ -141,7 +141,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// on error function for async loading
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
@@ -10419,7 +10419,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = prepareSend;
 
-var _sendAjax = __webpack_require__(6);
+var _sendAjax = __webpack_require__(7);
 
 var _sendAjax2 = _interopRequireDefault(_sendAjax);
 
@@ -10442,7 +10442,8 @@ function prepareSend(url, form, data, cb) {
 /* 3 */,
 /* 4 */,
 /* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

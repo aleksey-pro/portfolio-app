@@ -48,7 +48,7 @@ html(lang="ru-RU")
                         day: '2-digit'
                         })
                     input(class='admin-add__input' name="date" type="date" value=`${data}` placeholder='Дата').form__input
-                    textarea(class='admin-add__input' name='text' rows='6' placeholder='Содержание')
+                    textarea(id='tinymce' class='admin-add__input' name='text' rows='6' placeholder='Содержание')
                 input(name="" type="submit" value="Отправить").blog-btn.admin-btn.form__btn-send
                 input(name="" type="reset" value="Очистить").blog-btn.admin-btn.form__btn-reset
             form.admin-works#upload(action='/upload' method="POST" enctype="multipart/form-data")

@@ -1,5 +1,7 @@
 import prepareSend from './prepareSend';
 
+import '../style/app.scss';
+
 const rotateModule = require('./rotate');
 const parallaxModule = require('./parallax');
 const initMap = require('./map');
@@ -63,3 +65,11 @@ window.onscroll = function() {
 if(document.body.classList.contains('hasMap')) {
   myMapsModule.init();
 }
+
+import tinymce from 'tinymce/tinymce';
+import 'tinymce/themes/modern/theme';
+
+tinymce.init({
+  selector: '#tinymce',
+  skin: 'lightgray'
+});
