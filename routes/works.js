@@ -8,18 +8,18 @@ require('../models/reviews');
 
 //http://javabeat.net/mongoose-nodejs-mongodb/
 
-const isAdmin = (req, res, next) => {
-  // если в сессии текущего пользователя есть пометка о том, что он является
-  // администратором
-  if (req.session.isAdmin) {
-    //то всё хорошо :)
-    return next();
-  }
-  //если нет, то перебросить пользователя на главную страницу сайта
-  res.redirect('/');
-};
+// const isAdmin = (req, res, next) => {
+//   // если в сессии текущего пользователя есть пометка о том, что он является
+//   // администратором
+//   if (req.session.isAdmin) {
+//     //то всё хорошо :)
+//     return next();
+//   }
+//   //если нет, то перебросить пользователя на главную страницу сайта
+//   res.redirect('/');
+// };
   
-router.get('/', isAdmin, function (req, res) {
+router.get('/', function (req, res) {
   let obj = {
     title: 'Мои работы'
   };
