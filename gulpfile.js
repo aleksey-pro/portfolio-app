@@ -33,15 +33,15 @@ $.path.task.forEach(function(taskPath) {
 $.gulp.task('default', $.gulp.series(
   'clean',
   $.gulp.parallel(
-    // 'sass',
+    'sass',
     // 'js:foundation',
     // 'js:process',
-    // 'css:foundation',
-    // 'copy:font',
-    // 'copy:image',
+    'css:foundation',
+    'copy:image',
     'create:version',
     'sprite:svg',
-    'webpack'
+    'webpack',
+    'copy:font'
   ),
   'nodemon',
   $.gulp.parallel(

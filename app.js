@@ -91,8 +91,8 @@ app.use(function (err, req, res, next) {
   res.render('500');
 });
 //
-// server.listen(3000, 'localhost');
-server.listen(process.env.PORT, '0.0.0.0');
+server.listen(3000, 'localhost');
+// server.listen(process.env.PORT, '0.0.0.0');
 server.on('listening', function () {
   jsonfile
     .readFile(fileVersionControl, function (err, obj) {

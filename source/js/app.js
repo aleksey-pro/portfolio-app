@@ -1,7 +1,5 @@
 import prepareSend from './prepareSend';
 
-import '../style/app.scss';
-
 const rotateModule = require('./rotate');
 const parallaxModule = require('./parallax');
 const initMap = require('./map');
@@ -71,5 +69,6 @@ import 'tinymce/themes/modern/theme';
 
 tinymce.init({
   selector: '#tinymce',
-  skin: 'lightgray'
+  skin: false,
+  content_css : '../assets/css/vendors.css'
 });

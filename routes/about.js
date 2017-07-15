@@ -5,7 +5,18 @@ const content = require('../views/data/content.json');
 const router = express.Router();
 const mongoose = require('mongoose');
 
-router.get('/', function (req, res) {
+const isAdmin = (req, res, next) => {
+  // если в сессии текущего пользователя есть пометка о том, что он является
+  // администратором
+  if (req.session.isAdmin) {
+    //то всё хорошо :)
+    return next();
+  }
+  //если нет, то перебросить пользователя на главную страницу сайта
+  res.redirect('/');
+};
+
+router.get('/',  isAdmin, function (req, res) {
   let obj = {
     title: 'About page'
   };
