@@ -36,8 +36,8 @@ $.gulp.task(
     "clean",
     $.gulp.parallel(
       "sass",
-      "js:foundation",
-      "js:process",
+      // "js:foundation",
+      // "js:process",
       "css:foundation",
       "copy:image",
       "create:version",
