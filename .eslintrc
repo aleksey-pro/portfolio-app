@@ -16,16 +16,16 @@
   },
 
   "globals": {
-        "$": false,
-        "require": false,
-        "global": false,
-        "module": false
+    "$": false,
+    "require": false,
+    "global": false,
+    "module": false
   },
-  
+
   "extends": "eslint:recommended",
   "rules": {
     "indent": [2, 2],
-    "quotes": [2, "single"],
+    "quotes": [2, "double"],
     "semi": [2, "always"]
   }
 }

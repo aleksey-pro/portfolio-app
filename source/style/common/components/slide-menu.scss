@@ -1,10 +1,11 @@
-.slide-blocks__left, .slide-blocks__right {
+.slide-blocks__left,
+.slide-blocks__right {
   position: fixed;
   background-color: rgba($brand-green, 0.8);
   width: 50%;
   height: 100%;
   z-index: 1000;
-  transition: 0.8s 0.4s;
+  //transition: 0.8s 0.4s;
 }
 
 .slide-blocks__left {
@@ -16,7 +17,7 @@
 }
 
 .loaded {
-  .slide-blocks__left{
+  .slide-blocks__left {
     left: 0;
   }
 
@@ -26,12 +27,12 @@
 }
 
 .popup-menu {
-  display: none;
+  opacity: 0;
   @include centered-by-translate(x);
   top: 250px;
   text-align: center;
   z-index: 1001;
-  transition: .1s 0.5s;
+  transition: 0.1s 0.5s;
 }
 
 .popup-menu_link {
@@ -51,11 +52,11 @@
   }
 }
 
-.popup-menu_link.popup-menu_link--hovered:after{
+.popup-menu_link.popup-menu_link--hovered:after {
   opacity: 1;
 }
 
 .popup-menu--show {
   display: block;
+  opacity: 1;
 }
-

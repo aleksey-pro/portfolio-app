@@ -1,22 +1,17 @@
-webpackJsonp([1],{
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+'use strict';
 
-/***/ 39:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _upload = __webpack_require__(40);
+var _upload = require('./upload');
 
 var _upload2 = _interopRequireDefault(_upload);
 
-var _prepareSend = __webpack_require__(1);
+var _prepareSend = require('./prepareSend');
 
 var _prepareSend2 = _interopRequireDefault(_prepareSend);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var jTabsModule = __webpack_require__(41);
+var jTabsModule = require('./jTabs');
 var jQueryTabs = new jTabsModule();
 jQueryTabs.init();
 
@@ -88,37 +83,8 @@ function _prepareSendSkills(e) {
   (0, _prepareSend2.default)('/admin/addskills', formSkills, data);
 }
 
-/***/ }),
-
-/***/ 40:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-exports.default = function (url, data, cb) {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', url, true);
-
-  xhr.onload = function (e) {
-    var result = JSON.parse(xhr.responseText);
-    cb(result.status);
-  };
-
-  xhr.send(data);
-};
-
-/***/ }),
-
-/***/ 41:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function($) {
+},{"./jTabs":2,"./prepareSend":3,"./upload":5}],2:[function(require,module,exports){
+'use strict';
 
 function jTabsModule() {
 
@@ -164,9 +130,76 @@ function jTabsModule() {
 }
 
 module.exports = jTabsModule;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
-/***/ })
+},{}],3:[function(require,module,exports){
+'use strict';
 
-},[39]);
-//# sourceMappingURL=admin.bundle.js.map
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = prepareSend;
+
+var _sendAjax = require('./sendAjax');
+
+var _sendAjax2 = _interopRequireDefault(_sendAjax);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function prepareSend(url, form, data, cb) {
+  var resultContainer = form.querySelector('.status');
+  resultContainer.innerHTML = 'Sending...';
+  (0, _sendAjax2.default)(url, data, function (data) {
+    form.reset();
+    resultContainer.innerHTML = data;
+    if (cb) {
+      cb(data);
+    }
+  });
+}
+
+},{"./sendAjax":4}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (url, data, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onload = function (e) {
+    var result = void 0;
+    try {
+      result = JSON.parse(xhr.responseText);
+    } catch (e) {
+      cb('Извините в данных ошибка');
+    }
+    cb(result.status);
+  };
+  xhr.send(JSON.stringify(data));
+};
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+exports.default = function (url, data, cb) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', url, true);
+
+  xhr.onload = function (e) {
+    var result = JSON.parse(xhr.responseText);
+    cb(result.status);
+  };
+
+  xhr.send(data);
+};
+
+},{}]},{},[1])
+
+
+//# sourceMappingURL=maps/admin.js.map
